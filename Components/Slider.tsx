@@ -75,15 +75,13 @@ const Slider = ({destinations}:{destinations:destType[]}) => {
       </div>
         
 
-        <div>
-           <Header/>
-        </div>
+        
             {/* Main Content */}
 
             <div className="relative  flex flex-col lg:flex-row items-center justify-between px-6 lg:px-8 mt-8 lg:mt-16">
 
                 {/* Left Content */}
-                <div className="flex-1 max-w-2xl mb-8 lg:mb-0">
+                <div className="flex-1 max-w-2xl mt-10 mb-3 lg:mb-2">
                     <h1 className="text-6xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
                         {currentDestination.name}
                     </h1>
@@ -118,7 +116,7 @@ const Slider = ({destinations}:{destinations:destType[]}) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto lg:mx-0">
 
                         {/* Main Featured Card */}
-                         <div className="relative group">
+                         <div className="relative group mt-10">
                             <div className="bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-black/30 transition-all duration-500 transform hover:scale-105">
                                 <div className="relative mb-4 overflow-hidden rounded-xl">
                                     <img
@@ -158,7 +156,7 @@ const Slider = ({destinations}:{destinations:destType[]}) => {
                         
 
                         {/* Secondary Cards */}
-                         <div className="space-y-8 lg:mt-30">
+                         <div className="space-y-10 lg:mt-42">
                             {destinations.slice(1, 3).map((dest,_ ) => (
                                 <div
                                     key={dest.id}
@@ -206,7 +204,7 @@ const Slider = ({destinations}:{destinations:destType[]}) => {
             </button>
 
             {/* Destination Labels (Top Right) */}
-            <div className="absolute top-32 right-8 space-y-4 hidden lg:block">
+            <div className="absolute top-18 right-8 space-y-4 hidden lg:block">
                 {destinations.map((dest, index) => (
                     <button
                         key={dest.id}
@@ -224,7 +222,9 @@ const Slider = ({destinations}:{destinations:destType[]}) => {
                     </button>
                 ))}
             </div>
-
+        <div>
+           <Header/>
+        </div>
     </div>
   )
 }
