@@ -20,7 +20,7 @@ const navigations = [
 const SideBar = ({showMenu,setShowMenu}:args) => {
 
   return (
-    <div className={`${showMenu ? 'right-0' : "-right-[100%]"} fixed z-2 top-0 flex h-screen w-[75%] flex-col justify-between bg-white/40 backdrop-blur-lg px-8 pb-6 pt-16 text-black transition-all duration-200 md:hidden  shadow-md`}>
+    <div className={`${showMenu ? 'right-0' : "-right-[100%]"} fixed  top-0 flex h-screen w-[75%] flex-col justify-between bg-white/40 backdrop-blur-lg px-8 pb-6 pt-16 text-black transition-all duration-300 md:hidden  shadow-md`}>
             <div>
                 <button className='border border-black rounded-lg absolute top-4 right-9' onClick={()=>setShowMenu(false)}><X /></button>
                 <div className='flex items-center justify-start gap-3'>

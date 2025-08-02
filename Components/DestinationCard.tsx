@@ -1,4 +1,5 @@
 import { MapPin, Star, Calendar, Bookmark, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface Destination {
   id: number;
@@ -21,6 +22,7 @@ interface Props {
 
 const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => {
   return (
+    <Link href={'/blog/2'}>
     <div className="group relative">
       <div className="bg-black/20 backdrop-blur-lg rounded-3xl overflow-hidden border border-white/10 hover:bg-black/30 transition-all duration-500 transform hover:-translate-y-2">
         <div className="relative h-64 overflow-hidden">
@@ -83,6 +85,7 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
