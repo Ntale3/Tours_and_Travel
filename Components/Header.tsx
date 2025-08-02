@@ -21,7 +21,6 @@ const navs=[
   ]
 
 const Header = () => {
-  const [isActive,setIsActive]=useState<number>(0);
    const [showMenu, setShowMenu] = useState<boolean>(false)
     const toggleMenu = ()=>{
         setShowMenu(!showMenu)
