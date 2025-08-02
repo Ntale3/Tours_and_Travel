@@ -38,12 +38,12 @@ const Destinations = ({destinations,categories}:{destinations:detinationType[],c
      const [selectedCategory, setSelectedCategory] = useState("all");
       const [searchQuery, setSearchQuery] = useState("");
       const [favorites, setFavorites] = useState<Set<number>>(new Set());
-      const [isLoading, setIsLoading] = useState(true);
+      // const [isLoading, setIsLoading] = useState(true);
       
     
-      useEffect(() => {
-        setTimeout(() => setIsLoading(false), 1000);
-      }, []);
+      // useEffect(() => {
+      //   setTimeout(() => setIsLoading(false), 1000);
+      // }, []);
     
       const toggleFavorite = (id: number) => {
         setFavorites((prev) => {
@@ -60,16 +60,16 @@ const Destinations = ({destinations,categories}:{destinations:detinationType[],c
             d.location.toLowerCase().includes(searchQuery.toLowerCase()))
       );
     
-      if (isLoading) {
-        return (
-          <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-green-600 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
-              <p className="text-white text-lg font-medium">Discovering tropical destinations...</p>
-            </div>
-          </div>
-        );
-      }
+      // if (isLoading) {
+      //   return (
+      //     <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-green-600 flex items-center justify-center">
+      //       <div className="text-center">
+      //         <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+      //         <p className="text-white text-lg font-medium">Discovering tropical destinations...</p>
+      //       </div>
+      //     </div>
+      //   );
+      // }
 
 
 
@@ -78,11 +78,11 @@ const Destinations = ({destinations,categories}:{destinations:detinationType[],c
   return (
     <div>
         <BackgroundPalms />
-        <Header/>
+        
 
       <div className="relative px-6 py-12 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-8xl font-bold text-white mb-6 tracking-tight">DESTINATIONS</h1>
+          <h1 className="text-4xl md:text-8xl font-bold text-white my-6 tracking-tight">DESTINATIONS</h1>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Explore breathtaking tropical destinations around the world
           </p>
@@ -107,7 +107,7 @@ const Destinations = ({destinations,categories}:{destinations:detinationType[],c
           ))}
         </div>
       </div>
-
+   <Header/>
     </div>
   )
 }
