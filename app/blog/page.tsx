@@ -171,7 +171,7 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-600 via-black-500 to-orange-400">
+    <div className="min-h-screen bg-gradient-to-br from-gray-600 via-black-500 to-orange-400 ">
           
 
       {/* Main Content */}
@@ -390,13 +390,13 @@ const BlogPage: React.FC = () => {
             <p className="text-white/80 mb-6 max-w-md mx-auto">
               Get the latest travel stories, tips, and destination guides delivered straight to your inbox.
             </p>
-            <div className="flex max-w-md mx-auto gap-4">
+            <div className="lg:flex  max-w-md mx-auto gap-4 ">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full py-3 px-6 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
-              <button className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+              <button className="bg-gradient-to-r  from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 mt-2">
                 Subscribe
               </button>
             </div>
@@ -584,7 +584,7 @@ const BlogPage: React.FC = () => {
       )}
 
       {/* Floating Destinations Sidebar */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 hidden xl:block">
+      {/* <div className="fixed right-6 top-1/2 transform -translate-y-1/2 hidden xl:block">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 space-y-4">
           <div className="text-white font-semibold text-sm mb-4">Popular Destinations</div>
           
@@ -622,7 +622,7 @@ const BlogPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <style jsx>{`
         @keyframes fadeInUp {
