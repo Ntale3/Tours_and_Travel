@@ -15,9 +15,9 @@ const navs=[
         {link:'#',name:'Politics'}
       ]},
     { link: '/blog', name: 'Blog', hyperLinks:[] },
-    { link: '#', name: 'About' ,hyperLinks:[]},
-    { link: '#', name: 'Contact',hyperLinks:[]},
-    { link: '#', name: 'News',hyperLinks:[]}
+    { link: '/about', name: 'About' ,hyperLinks:[]},
+    { link: '/contact', name: 'Contact',hyperLinks:[]},
+    { link: '/gallery', name: 'Gallery',hyperLinks:[]}
   ]
 
 const Header = () => {

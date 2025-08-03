@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { ArrowLeft, Calendar, User, Heart, MessageCircle, Share2, BookOpen, Clock, MapPin, Tag, Send, ThumbsUp, Reply, MoreHorizontal, Facebook, Twitter, Instagram, Link, X } from 'lucide-react';
+import Header from '@/Components/Header';
 
 interface Comment {
   id: number;
@@ -141,40 +142,7 @@ const BlogDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-md z-50 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center font-bold text-white">
-                F
-              </div>
-              <span className="text-xl font-bold text-white">Foxico</span>
-            </div>
-
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-8 bg-white/10 backdrop-blur-md px-8 py-3 rounded-full">
-              <a href="#" className="text-white/80 hover:text-orange-400 transition-colors">Home</a>
-              <a href="#" className="text-white/80 hover:text-orange-400 transition-colors">Destinations</a>
-              <a href="#" className="text-orange-400 font-semibold relative">
-                Blog
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-400 rounded-full"></div>
-              </a>
-              <a href="#" className="text-white/80 hover:text-orange-400 transition-colors">About</a>
-              <a href="#" className="text-white/80 hover:text-orange-400 transition-colors">Contact</a>
-              <a href="#" className="text-white/80 hover:text-orange-400 transition-colors">News</a>
-            </nav>
-
-            {/* User Profile */}
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                <User className="w-4 h-4 text-white" />
-              </div>
-              <span className="hidden sm:inline text-white">Hello, Anney !</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       {/* Main Content */}
       <main className="pt-24 pb-12">
