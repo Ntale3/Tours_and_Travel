@@ -142,7 +142,7 @@ const BlogDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
       {/* Header */}
-      <Header/>
+      
 
       {/* Main Content */}
       <main className="pt-24 pb-12">
@@ -463,7 +463,7 @@ const BlogDetailPage: React.FC = () => {
           </div>
         </div>
       )}
-
+<Header/>
       <style jsx>{`
         .prose h2 {
           color: #ff6b35;

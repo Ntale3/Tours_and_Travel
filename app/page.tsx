@@ -1,4 +1,5 @@
-import Slider from "@/Components/Slider";
+import Footer from "@/Components/Footer";
+import Slider from "@/Components/home-components/Slider";
 
 const destinations = [
         {

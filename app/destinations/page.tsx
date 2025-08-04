@@ -92,7 +92,8 @@ import { Globe, Camera, MapPin, Heart, Plane } from "lucide-react";
 const DestinationsPage = () => {
  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-green-600 relative overflow-hidden">
+    <div className="min-h-screen  relative overflow-hidden">
+      
      <Destination destinations={destinations} categories={categories}/>
     </div>
   );

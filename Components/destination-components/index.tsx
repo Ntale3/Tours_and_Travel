@@ -1,43 +1,22 @@
 'use client'
-import { useEffect, useState } from "react";
-import BackgroundPalms from "./BackgroundPalms";
-import Header from "../Header";
-import DestinationCard from "../DestinationCard";
-import CategoryFilters from "./CategoriesFilters";
-import SearchBar from "./SearchBar";
-
-interface detinationType
-{
-id: number,
-name: string,
-location: string,
-category: string,
-image: string,
-price: string,
-rating: number,
-reviews: number,
-duration: string,
-groupSize: string,
-description: string,
-highlights: string[],
-bestTime: string
-}
-
-interface categoryType
-{
- id:string,  
- name:string,
- icon?:string
-
-}
+import { useState } from "react";
+import Header from "@/Components/Header";
+import DestinationCard from "@/Components/DestinationCard";
+import CategoryFilters from "@/Components/destination-components/CategoriesFilters";
+import SearchBar from "@/Components/destination-components/SearchBar";
+import BackgroundPalms from "@/Components/destination-components/BackgroundPalms";
+import { DestinationType,categoryType } from '@/types'
 
 
 
-const Destinations = ({destinations,categories}:{destinations:detinationType[],categories:categoryType[]}) => {
 
-     const [selectedCategory, setSelectedCategory] = useState("all");
-      const [searchQuery, setSearchQuery] = useState("");
-      const [favorites, setFavorites] = useState<Set<number>>(new Set());
+
+
+const Destinations = ({destinations,categories}:{destinations:DestinationType[],categories:categoryType[]}) => {
+
+    const [selectedCategory, setSelectedCategory] = useState("all");
+    const [searchQuery, setSearchQuery] = useState("");
+    const [favorites, setFavorites] = useState<Set<number>>(new Set());
       // const [isLoading, setIsLoading] = useState(true);
       
     
@@ -77,8 +56,7 @@ const Destinations = ({destinations,categories}:{destinations:detinationType[],c
 
   return (
     <div>
-        <BackgroundPalms />
-        
+        <BackgroundPalms/>
 
       <div className="relative px-6 py-12 max-w-7xl mx-auto">
         <div className="text-center mb-12">
@@ -107,7 +85,7 @@ const Destinations = ({destinations,categories}:{destinations:detinationType[],c
           ))}
         </div>
       </div>
-   <Header/>
+    <Header/>
     </div>
   )
 }
