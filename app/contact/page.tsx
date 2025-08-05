@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect, FormEvent } from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/Components/Header';

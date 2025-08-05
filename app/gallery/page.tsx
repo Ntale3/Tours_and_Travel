@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import GalleryCard from '@/Components/gallery-components/GalleryCard';
 import FilterBar from '@/Components/gallery-components/FilterBar';
 import LightboxModal from '@/Components/gallery-components/LightboxModal';
@@ -9,7 +9,7 @@ import Header from "@/Components/Header";
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [activeFilter, setActiveFilter] = useState("all");
-  const [isLoading, setIsLoading] = useState(true);
+  //const [isLoading, setIsLoading] = useState(true);
 
   const galleryImages: GalleryImage[] = [
     {
@@ -164,10 +164,10 @@ export default function Gallery() {
       ? galleryImages
       : galleryImages.filter((img) => img.category === activeFilter);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setIsLoading(false), 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const navigateImage = (dir: "prev" | "next") => {
     if (!selectedImage) return;

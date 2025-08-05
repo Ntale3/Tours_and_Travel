@@ -1,8 +1,6 @@
 import Destination from '@/Components/destination-components/index'
-import { Globe, Camera, MapPin, Heart, Plane } from "lucide-react";
 
-// ... same destinations & categories data
- // Mock destinations data matching the tropical theme
+
   const destinations = [
     {
       id: 1,

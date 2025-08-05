@@ -22,7 +22,7 @@ interface Stat {
 
 const About: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('story');
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  //const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   // Sample data
   const teamMembers: TeamMember[] = [
@@ -56,14 +56,14 @@ const About: React.FC = () => {
     { id: 4, value: "24/7", label: "Support", icon: "🛟" }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 50);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   return (
     <>

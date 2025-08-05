@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { MapPin, Star, Calendar, Users, Phone, Mail, CreditCard, Check, X, Heart, Share2, Camera } from 'lucide-react';
+import { MapPin, Star, Calendar, Phone, Check, X, Heart, Share2 } from 'lucide-react';
 import Header from '@/Components/Header';
 
 interface BookingForm {
