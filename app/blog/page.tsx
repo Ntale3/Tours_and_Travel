@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
-import { Search, Calendar, User, ArrowRight, Heart, MessageCircle, Share2, BookOpen, Plus, X, Upload, Eye, Save, Send, Tag, MapPin } from 'lucide-react';
-import Header from '@/Components/Header';
+import {Calendar, User, ArrowRight, Heart, MessageCircle, Share2, BookOpen, Plus, X, Upload, Eye, Save, Send, Tag, MapPin } from 'lucide-react';
+import Header from '@/components/Header';
 
 interface BlogPost {
   id: number;
@@ -55,7 +55,7 @@ const BlogPage: React.FC = () => {
       author: "Sarah Chen",
       date: "July 28, 2025",
       readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1563492065-5a4b989d9d56?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
       likes: 142,
       comments: 23,
       featured: true
@@ -68,7 +68,7 @@ const BlogPage: React.FC = () => {
       author: "Marcus Rivera",
       date: "July 25, 2025",
       readTime: "12 min read",
-      image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=800&h=600&fit=crop",
       likes: 89,
       comments: 17,
       featured: true
@@ -107,7 +107,7 @@ const BlogPage: React.FC = () => {
       author: "David Kim",
       date: "July 20, 2025",
       readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=800&h=600&fit=crop",
       likes: 203,
       comments: 45
     },
@@ -171,41 +171,42 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-600 via-black-500 to-orange-400 ">
-          
+    // <div className="min-h-screen bg-gradient-to-br from-teal-400 via-black to-orange-600 ">
+    <div className='min-h-screen bg-background'>
+
 
       {/* Main Content */}
       <main className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-6">
           {/* Hero Section */}
           <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-orange-200 to-orange-400 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-orange-200 to-orange-400 bg-clip-text text-foreground">
               TRAVEL BLOG
             </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+            <p className="text-xl  max-w-2xl mx-auto mb-8 text-foreground">
               Stories, guides, and inspiration from around the world. Discover your next adventure through our travel experiences.
             </p>
-            
+
             {/* Action Buttons */}
             <div className="flex justify-center gap-4 mb-8">
               {/* Search Bar */}
               <div className="relative max-w-md">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" />
+                {/* <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" /> */}
                 <input
                   type="text"
                   placeholder="Search articles..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-full py-3 pl-12 pr-4 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  className="w-full bg-white/10 backdrop-blur-md border border-border rounded-full py-3 pl-12 pr-4 text-white placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
                 />
               </div>
-              
+
               {/* Share Your Journey Button */}
               <button
                 onClick={() => setShowCreateModal(true)}
-                className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 flex items-center gap-2"
+                className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold  rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 flex items-center gap-2 px-2 text-sm md:text-md lg:text-lg"
               >
-                <Plus className="w-5 h-5" />
+                <Plus className="w-6 h-6" />
                 Share Your Journey
               </button>
             </div>
@@ -220,18 +221,19 @@ const BlogPage: React.FC = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeFilter === category
                     ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/25'
-                    : 'bg-white/10 backdrop-blur-md text-white hover:bg-orange-500/20 border border-white/20'
+                    : ' backdrop-blur-md text-foreground  border border-border'
                 }`}
               >
                 {category}
               </button>
+
             ))}
           </div>
 
           {/* Featured Posts */}
           {activeFilter === 'All' && (
             <div className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+              <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
                 <BookOpen className="w-8 h-8 text-orange-400" />
                 Featured Stories
               </h2>
@@ -239,7 +241,7 @@ const BlogPage: React.FC = () => {
                 {featuredPosts.map((post) => (
                   <article
                     key={post.id}
-                    className="group bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-white/20 hover:border-orange-400/50 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10"
+                    className="group bg-card backdrop-blur-md rounded-2xl overflow-hidden border border-border hover:border-accent transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10"
                   >
                     <div className="relative overflow-hidden">
                       <img
@@ -261,10 +263,10 @@ const BlogPage: React.FC = () => {
                       )}
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors">
+                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-orange-800 transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-white/80 mb-4 line-clamp-2">
+                      <p className="text-primary mb-4 line-clamp-2">
                         {post.excerpt}
                       </p>
                       <div className="flex items-center justify-between text-sm text-white/60 mb-4">
@@ -281,7 +283,7 @@ const BlogPage: React.FC = () => {
                         <span>{post.readTime}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4 text-white/60">
+                        <div className="flex items-center gap-4 text-foreground">
                           <button className="flex items-center gap-1 hover:text-orange-400 transition-colors">
                             <Heart className="w-4 h-4" />
                             {post.likes}
@@ -294,7 +296,7 @@ const BlogPage: React.FC = () => {
                             <Share2 className="w-4 h-4" />
                           </button>
                         </div>
-                        <button className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors group">
+                        <button className="flex items-center gap-2 text-foreground hover:text-orange-800 transition-colors group">
                           Read More
                           <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                         </button>
@@ -311,7 +313,7 @@ const BlogPage: React.FC = () => {
             {regularPosts.map((post, index) => (
               <article
                 key={post.id}
-                className="group bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-white/20 hover:border-orange-400/50 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-500/10"
+                className="group bg-card backdrop-blur-md rounded-2xl overflow-hidden border border-border hover:border-accent transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-accent"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative overflow-hidden">
@@ -333,16 +335,16 @@ const BlogPage: React.FC = () => {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="p-5">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-card-foreground mb-2 group-hover:text-orange-400 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="text-white/80 text-sm mb-4 line-clamp-2">
                     {post.excerpt}
                   </p>
-                  
-                  <div className="flex items-center justify-between text-xs text-white/60 mb-4">
+
+                  <div className="flex items-center justify-between text-xs text-card-foreground mb-4">
                     <div className="flex items-center gap-3">
                       <span className="flex items-center gap-1">
                         <User className="w-3 h-3" />
@@ -355,7 +357,7 @@ const BlogPage: React.FC = () => {
                     </div>
                     <span>{post.readTime}</span>
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3 text-white/60">
                       <button className="flex items-center gap-1 hover:text-orange-400 transition-colors">
@@ -367,7 +369,7 @@ const BlogPage: React.FC = () => {
                         {post.comments}
                       </button>
                     </div>
-                    <button className="flex items-center gap-1 text-orange-400 hover:text-orange-300 transition-colors group text-sm">
+                    <button className="flex items-center gap-1 text-card-foreground hover:text-orange-800 transition-colors group text-sm">
                       Read
                       <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -385,16 +387,16 @@ const BlogPage: React.FC = () => {
           </div>
 
           {/* Newsletter Signup */}
-          <div className="mt-20 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 text-center">
-            <h3 className="text-3xl font-bold text-white mb-4">Never Miss an Adventure</h3>
-            <p className="text-white/80 mb-6 max-w-md mx-auto">
+          <div className="mt-20 bg-card backdrop-blur-md rounded-3xl p-8 border border-border text-center">
+            <h3 className="text-3xl font-bold text-foreground mb-4">Never Miss an Adventure</h3>
+            <p className="text-foreground mb-6 max-w-md mx-auto">
               Get the latest travel stories, tips, and destination guides delivered straight to your inbox.
             </p>
             <div className="lg:flex  max-w-md mx-auto gap-4 ">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full py-3 px-6 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="flex-1 bg-background backdrop-blur-md border border-border rounded-full py-3 px-6  placeholder:muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
               <button className="bg-gradient-to-r  from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 mt-2">
                 Subscribe
@@ -406,7 +408,7 @@ const BlogPage: React.FC = () => {
 
       {/* Create Blog Post Modal */}
       {showCreateModal && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 dark:bg-black/50 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
           <div className="bg-white/10 backdrop-blur-md rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/20">
             {/* Modal Header */}
             <div className="flex items-center justify-between p-6 border-b border-white/20">
@@ -553,14 +555,14 @@ const BlogPage: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex justify-between items-center pt-4 border-t border-white/20">
-                <div className="flex gap-3">
-                  <button className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+              <div className="flex justify-between items-center p-4 border-t border-white/20 mb-4">
+                <div className="flex gap-3 mr-3 md:mr-0">
+                  <button className="flex items-center gap-2  text-white/80 hover:text-white transition-colors">
                     <Eye className="w-4 h-4" />
                     Preview
                   </button>
                 </div>
-                
+
                 <div className="flex gap-3">
                   <button
                     onClick={() => handleSubmitPost('draft')}
@@ -571,9 +573,9 @@ const BlogPage: React.FC = () => {
                   </button>
                   <button
                     onClick={() => handleSubmitPost('pending')}
-                    className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center  gap-2 bg-gradient-to-r from-orange-500 to-orange-900 hover:from-orange-600 hover:to-pink-600 text-white px-2 rounded-xl md:text-md lg:text-lg text-sm transition-all duration-300 transform hover:scale-105"
                   >
-                    <Send className="w-4 h-4" />
+                   <Send className="w-6 h-6" />
                     Submit for Review
                   </button>
                 </div>
@@ -583,46 +585,6 @@ const BlogPage: React.FC = () => {
         </div>
       )}
 
-      {/* Floating Destinations Sidebar */}
-      {/* <div className="fixed right-6 top-1/2 transform -translate-y-1/2 hidden xl:block">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 space-y-4">
-          <div className="text-white font-semibold text-sm mb-4">Popular Destinations</div>
-          
-          <div className="space-y-3">
-            <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer">
-              <div className="w-12 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg flex items-center justify-center">
-                <span className="text-xs font-bold text-white">BALI</span>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer">
-              <div className="w-12 h-8 bg-gradient-to-r from-orange-400 to-red-500 rounded-lg flex items-center justify-center">
-                <span className="text-xs font-bold text-white">KERALA</span>
-              </div>
-              <div className="text-right">
-                <div className="text-white font-semibold text-sm">$899</div>
-                <div className="text-yellow-400 text-xs">★ 4.7</div>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer border-2 border-orange-400">
-              <div className="w-12 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
-                <span className="text-xs font-bold text-white">THAILAND</span>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer">
-              <div className="w-12 h-8 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-xs font-bold text-white">MALDIVES</span>
-              </div>
-              <div className="text-right">
-                <div className="text-white font-semibold text-sm">$2,199</div>
-                <div className="text-yellow-400 text-xs">★ 4.9</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       <style jsx>{`
         @keyframes fadeInUp {
