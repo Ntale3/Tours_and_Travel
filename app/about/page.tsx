@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Header from '@/Components/Header';
-import Footer from '@/Components/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 interface TeamMember {
   id: number;
@@ -34,7 +34,7 @@ const About: React.FC = () => {
       bio: "Travel enthusiast with 15 years of experience in creating unforgettable journeys."
     },
     {
-      id: 2,  
+      id: 2,
       name: "David Chen",
       role: "Head of Operations",
       image: "/api/placeholder/300/300",
@@ -67,11 +67,11 @@ const About: React.FC = () => {
 
   return (
     <>
-      
 
-    <div className="min-h-screen bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600">
+
+    <div className="min-h-screen bg-gradient-to-br from-teal-400 via-black to-orange-600">
         {/* Navigation */}
-     
+
         <Header/>
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
@@ -81,7 +81,7 @@ const About: React.FC = () => {
                 About <span className="text-orange-400">Foxico</span>
               </h1>
               <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                We're passionate about creating extraordinary travel experiences that connect you 
+                We're passionate about creating extraordinary travel experiences that connect you
                 with the world's most beautiful destinations and cultures.
               </p>
             </div>
@@ -141,11 +141,11 @@ const About: React.FC = () => {
                       Our Story Began in 2008
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      What started as a small passion project to help friends discover hidden gems 
+                      What started as a small passion project to help friends discover hidden gems
                       around the world has grown into a trusted platform serving thousands of travelers.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      We believe that travel is more than just visiting places – it's about creating 
+                      We believe that travel is more than just visiting places – it's about creating
                       connections, understanding cultures, and building memories that last a lifetime.
                     </p>
                     <div className="flex flex-wrap gap-3">
@@ -185,10 +185,10 @@ const About: React.FC = () => {
                   Our Mission
                 </h2>
                 <p className="text-xl text-gray-700 leading-relaxed mb-12">
-                  To make extraordinary travel accessible to everyone while promoting sustainable 
+                  To make extraordinary travel accessible to everyone while promoting sustainable
                   tourism and supporting local communities worldwide.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl">
                     <div className="text-4xl mb-4">🌍</div>
@@ -266,7 +266,7 @@ const About: React.FC = () => {
                 <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
                   Our Core Values
                 </h2>
-                
+
                 <div className="space-y-8">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">

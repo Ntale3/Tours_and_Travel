@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { ArrowLeft, Calendar, User, Heart, MessageCircle, Share2, BookOpen, Clock, MapPin, Tag, Send, ThumbsUp, Reply, MoreHorizontal, Facebook, Twitter, Instagram, Link, X } from 'lucide-react';
-import Header from '@/Components/Header';
+import Header from '@/components/Header';
 
 interface Comment {
   id: number;
@@ -36,7 +36,7 @@ const BlogDetailPage: React.FC = () => {
       <p>My journey began at 4 AM, when the alarm jolted me from a peaceful sleep in my guesthouse in Chiang Rai. The plan was ambitious: visit five hidden temples in remote areas that required hours of hiking through dense jungle and mountainous terrain. What I discovered was far more than just architectural marvels – it was a transformative experience that changed my perspective on travel and spirituality.</p>
 
       <h2>Wat Rong Khun: The White Temple</h2>
-      
+
       <p>Our first stop was Wat Rong Khun, known as the White Temple. Unlike traditional Thai temples with their golden facades, this contemporary Buddhist temple gleams in pure white, symbolizing the purity of Buddha. The intricate details are mesmerizing – every surface is covered in mirrors that sparkle in the sunlight, creating an almost otherworldly atmosphere.</p>
 
       <p>The bridge leading to the main hall represents the crossing from the cycle of rebirth to the path of enlightenment. Below, hundreds of outstretched hands emerge from the ground, representing unrestrained desire. The symbolism is powerful and immediate – you feel the weight of the message as you walk across.</p>
@@ -142,7 +142,7 @@ const BlogDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
       {/* Header */}
-      
+
 
       {/* Main Content */}
       <main className="pt-24 pb-12">
@@ -163,7 +163,7 @@ const BlogDetailPage: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              
+
               {/* Category Badge */}
               <div className="absolute top-6 left-6">
                 <span className="bg-orange-500 text-white px-4 py-2 rounded-full font-medium">
@@ -176,8 +176,8 @@ const BlogDetailPage: React.FC = () => {
                 <button
                   onClick={() => setIsBookmarked(!isBookmarked)}
                   className={`w-12 h-12 rounded-full backdrop-blur-md transition-all ${
-                    isBookmarked 
-                      ? 'bg-orange-500 text-white' 
+                    isBookmarked
+                      ? 'bg-orange-500 text-white'
                       : 'bg-white/20 text-white hover:bg-white/30'
                   }`}
                 >
@@ -199,7 +199,7 @@ const BlogDetailPage: React.FC = () => {
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                   {blogPost.title}
                 </h1>
-                
+
                 <div className="flex flex-wrap items-center gap-6 text-white/70 mb-6">
                   <div className="flex items-center gap-2">
                     <User className="w-4 h-4" />
@@ -254,7 +254,7 @@ const BlogDetailPage: React.FC = () => {
               </div>
 
               {/* Article Body */}
-              <div 
+              <div
                 className="prose prose-lg prose-invert max-w-none mb-12"
                 dangerouslySetInnerHTML={{ __html: blogPost.content }}
                 style={{
@@ -284,7 +284,7 @@ const BlogDetailPage: React.FC = () => {
               {/* Comments Section */}
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-white mb-6">Comments ({comments.length})</h3>
-                
+
                 {/* Add Comment */}
                 <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 mb-6">
                   <div className="flex gap-4">
@@ -426,7 +426,7 @@ const BlogDetailPage: React.FC = () => {
                 <X className="w-4 h-4 text-white" />
               </button>
             </div>
-            
+
             <div className="space-y-4">
               <button
                 onClick={() => handleShare('facebook')}
@@ -435,7 +435,7 @@ const BlogDetailPage: React.FC = () => {
                 <Facebook className="w-5 h-5" />
                 Share on Facebook
               </button>
-              
+
               <button
                 onClick={() => handleShare('twitter')}
                 className="w-full flex items-center gap-3 bg-sky-500 hover:bg-sky-600 text-white p-4 rounded-xl transition-colors"
@@ -443,7 +443,7 @@ const BlogDetailPage: React.FC = () => {
                 <Twitter className="w-5 h-5" />
                 Share on Twitter
               </button>
-              
+
               <button
                 onClick={() => handleShare('instagram')}
                 className="w-full flex items-center gap-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-4 rounded-xl transition-colors"
@@ -451,7 +451,7 @@ const BlogDetailPage: React.FC = () => {
                 <Instagram className="w-5 h-5" />
                 Share on Instagram
               </button>
-              
+
               <button
                 onClick={() => handleShare('copy')}
                 className="w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white p-4 rounded-xl transition-colors border border-white/20"
