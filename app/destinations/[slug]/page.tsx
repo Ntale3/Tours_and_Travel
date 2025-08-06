@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { MapPin, Star, Calendar, Phone, Check, X, Heart, Share2 } from 'lucide-react';
-import Header from '@/Components/Header';
+import Header from '@/components/Header';
 
 interface BookingForm {
   name: string;
@@ -73,11 +73,11 @@ const DestinationPage = () => {
   return (
     <div>
     <div className="min-h-screen bg-white">
-      
+
       {/* Hero Section */}
       <div className="relative h-screen overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 z-10"></div>
-        
+
         {/* Image Carousel */}
         <div className="relative h-full">
           {images.map((img, index) => (
@@ -161,8 +161,8 @@ const DestinationPage = () => {
                 Experience Paradise
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Immerse yourself in the enchanting beauty of Bali, where ancient temples meet pristine beaches, 
-                and lush rice terraces cascade down volcanic slopes. Our exclusive resort offers the perfect blend 
+                Immerse yourself in the enchanting beauty of Bali, where ancient temples meet pristine beaches,
+                and lush rice terraces cascade down volcanic slopes. Our exclusive resort offers the perfect blend
                 of luxury and authentic Balinese culture.
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -476,7 +476,7 @@ const DestinationPage = () => {
           </div>
         </div>
       )}
- 
+
       {/* Floating Action Button */}
       <button
         onClick={() => setIsBookingOpen(true)}
@@ -484,7 +484,7 @@ const DestinationPage = () => {
       >
         <Calendar className="w-6 h-6" />
       </button>
-     
+
     </div>
     <Header/>
   </div>

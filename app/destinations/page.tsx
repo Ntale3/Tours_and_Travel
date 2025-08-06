@@ -1,4 +1,4 @@
-import Destination from '@/Components/destination-components/index'
+import Destination from '@/components/destination-components/index'
 
 
   const destinations = [
@@ -46,7 +46,7 @@ import Destination from '@/Components/destination-components/index'
       description: "Island of the Gods featuring ancient temples, rice terraces, and pristine beaches.",
       highlights: ["Temple Tours", "Rice Terraces", "Beach Clubs", "Volcano Sunrise"],
       bestTime: "April - October"
-    },    
+    },
     {
       id: 5,
       name: "SRI LANKA",
@@ -88,10 +88,10 @@ import Destination from '@/Components/destination-components/index'
   ];
 
 const DestinationsPage = () => {
- 
+
   return (
     <div className="min-h-screen  relative overflow-hidden">
-      
+
      <Destination destinations={destinations} categories={categories}/>
     </div>
   );

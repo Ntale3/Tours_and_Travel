@@ -1,10 +1,10 @@
 'use client'
 import React, { useState} from "react";
-import GalleryCard from '@/Components/gallery-components/GalleryCard';
-import FilterBar from '@/Components/gallery-components/FilterBar';
-import LightboxModal from '@/Components/gallery-components/LightboxModal';
+import GalleryCard from '@/components/gallery-components/GalleryCard';
+import FilterBar from '@/components/gallery-components/FilterBar';
+import LightboxModal from '@/components/gallery-components/LightboxModal';
 import { GalleryImage } from "@/types";
-import Header from "@/Components/Header";
+import Header from "@/components/Header";
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);

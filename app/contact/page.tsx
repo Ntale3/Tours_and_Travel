@@ -2,7 +2,7 @@
 import { useState, useEffect, FormEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Header from '@/Components/Header';
+import Header from '@/components/Header';
 
 interface ContactForm {
   name: string;
@@ -173,7 +173,7 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -202,10 +202,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <>     
+    <>
     <Header/>
       <div className="min-h-screen bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600">
-        {/* Navigation */}        
+        {/* Navigation */}
 
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
@@ -215,7 +215,7 @@ const Contact: React.FC = () => {
                 Get in <span className="text-orange-400">Touch</span>
               </h1>
               <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Have questions about your next adventure? Our travel experts are here to help 
+                Have questions about your next adventure? Our travel experts are here to help
                 you plan the perfect getaway.
               </p>
             </div>
@@ -483,7 +483,7 @@ const Contact: React.FC = () => {
                         <p className="text-orange-600 font-medium mb-4">
                           {office.country}
                         </p>
-                        
+
                         <div className="space-y-3 text-sm text-gray-600">
                           <div className="flex items-start space-x-2">
                             <span>📍</span>
@@ -506,7 +506,7 @@ const Contact: React.FC = () => {
                             <span>{office.timezone}</span>
                           </div>
                         </div>
-                        
+
                         <div className="mt-6">
                           <button className="w-full bg-orange-100 text-orange-600 py-2 px-4 rounded-lg hover:bg-orange-200 transition-colors font-medium">
                             Get Directions
@@ -595,7 +595,7 @@ const Contact: React.FC = () => {
                   Creating extraordinary travel experiences that connect you with the world's most beautiful destinations.
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold mb-4">Quick Links</h3>
                 <div className="space-y-2">
@@ -605,7 +605,7 @@ const Contact: React.FC = () => {
                   <Link href="/about" className="block text-gray-400 hover:text-white transition-colors">About</Link>
                 </div>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold mb-4">Support</h3>
                 <div className="space-y-2">
@@ -616,7 +616,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
               <p>&copy; 2025 Foxico. All rights reserved.</p>
             </div>

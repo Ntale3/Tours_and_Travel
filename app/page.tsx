@@ -1,4 +1,4 @@
-import Slider from "@/Components/home-components/Slider";
+import Slider from "@/components/home-components/Slider";
 
 const destinations = [
         {
@@ -57,7 +57,7 @@ const destinations = [
 
 
 export default function Home() {
-    
+
   return (
     <div>
 
