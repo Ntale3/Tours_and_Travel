@@ -18,11 +18,11 @@ const CategoryFilters = ({ categories, selected, onSelect }: Props) => {
           onClick={() => onSelect(category.id)}
           className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
             selected === category.id
-              ? "bg-white text-teal-600 shadow-lg"
-              : "bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
+              ? "bg-primary text-primary-foreground shadow-lg"
+              : "bg-secondary backdrop-blur-sm text-secondary-foreground border border-border hover:bg-secondary/0.5"
           }`}
         >
-          {category.name}          
+          {category.name}
         </button>
       ))}
     </div>
