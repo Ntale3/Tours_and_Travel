@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import DestinationCard from "@/components/DestinationCard";
 import CategoryFilters from "@/components/destination-components/CategoriesFilters";
 import SearchBar from "@/components/destination-components/SearchBar";
-import BackgroundPalms from "@/components/destination-components/BackgroundPalms";
 import { DestinationType,categoryType } from '@/types'
 
 
@@ -55,13 +54,11 @@ const Destinations = ({destinations,categories}:{destinations:DestinationType[],
 
 
   return (
-    <div>
-        <BackgroundPalms/>
-
+    <div className="bg-background">
       <div className="relative px-6 py-12 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-8xl font-bold text-white my-6 tracking-tight">DESTINATIONS</h1>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-8xl font-bold text-foreground my-6 tracking-tight">DESTINATIONS</h1>
+          <p className="text-xl text-foreground mb-8 max-w-2xl mx-auto">
             Explore breathtaking tropical destinations around the world
           </p>
 
