@@ -35,28 +35,28 @@ const {setTheme}=useTheme();
   return (
 
     <div>
-    <header className="fixed z-50 bg-black/40 backdrop-blur-md right-0 left-0 top-0 flex items-center justify-between p-4  lg:py-1">
+    <header className="fixed z-50 bg-sidebar backdrop-blur-md right-0 left-0 top-0 flex items-center justify-between p-4  lg:py-1">
       <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">F</span>
           </div>
-          <span className="text-white text-xl font-bold">Foxico</span>
+          <span className="text-sidebar-foreground text-xl font-bold">Foxico</span>
       </div>
 
-    <div className="hidden lg:block md:block bg- p-4 rounded-3xl">
-        <nav className="hidden md:flex items-center space-x-8 text-white">
+    <div className="hidden md:block bg- p-4 rounded-3xl">
+        <nav className="hidden md:flex items-center space-x-8 text-sidebar-foreground">
           <ul className='flex gap-4'>
             {navs.map((nav,index)=>(
-              <li key={index} className={pathname===nav.link?'text-orange-400 font-semibold relative':''}>
+              <li key={index} className={pathname===nav.link?'text-sidebar-accent-foreground font-semibold relative':''}>
                 { nav.name!=='Destinations'?
-                  <Link href={nav.link} >
+                  <Link href={nav.link} className="hover:text-muted-foreground">
                     {nav.name}
                     {pathname===nav.link &&( <div className='absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-400 rounded-full'/> )}
                   </Link>
                     :
                     <div className='relative group'>
                       <div className='flex items-center '>
-                      <Link href={nav.link} className='hover:text-orange-300 transition-colors flex items-center gap-1'>
+                      <Link href={nav.link} className=' transition-colors flex items-center gap-1 hover:text-muted-foreground'>
                       {nav.name}
                       {pathname===nav.link &&( <div className='absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-400 rounded-full'/> )}
                       </Link>
@@ -95,11 +95,11 @@ const {setTheme}=useTheme();
       </div>
 
         <div className=" w-8 h-8 bg-background rounded-full flex items-center justify-center ">
-            <Users className="w-4 h-4 text-foreground" />
+            <Users className="w-4 h-4 text-sidebar-foreground" />
         </div>
-        <span className="text-white hidden lg:block">Hello, Anney !</span>
+        <span className="text-sidebar-foreground hidden lg:block">Hello, Anney !</span>
         <div className=" lg:hidden md:hidden w-8 h-8 bg-background rounded-full flex items-center justify-center">
-            <AlignRight className="w-4 h-4 text-foreground" onClick={toggleMenu} />
+            <AlignRight className="w-4 h-4 text-sidebar-foreground" onClick={toggleMenu} />
         </div>
 
          </div>
