@@ -15,7 +15,7 @@ export default function GalleryCard({ image, index, onClick }: Props) {
       onClick={onClick}
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl">
+      <div className="relative overflow-hidden rounded-2xl bg-card backdrop-blur-sm border border-border shadow-xl">
         <div className="aspect-w-4 aspect-h-3 relative h-64">
           <img
             src={image.src}

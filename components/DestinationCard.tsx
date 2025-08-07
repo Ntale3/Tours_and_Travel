@@ -24,7 +24,7 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
   return (
     <Link href={'/blog/2'}>
     <div className="group relative">
-      <div className="bg-black/20 backdrop-blur-lg rounded-3xl overflow-hidden border border-white/10 hover:bg-black/30 transition-all duration-500 transform hover:-translate-y-2">
+      <div className="bg-card  rounded-3xl overflow-hidden border border-border hover:bg-secondary transition-all duration-500 transform hover:-translate-y-2">
         <div className="relative h-64 overflow-hidden">
           <img
             src={destination.image}
@@ -35,7 +35,7 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
 
           <button
             onClick={() => toggleFavorite(destination.id)}
-            className="absolute top-4 right-4 p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 transition-all duration-300"
+            className="absolute top-4 right-4 p-2 rounded-full bg-card backdrop-blur-sm text-card-foreground hover:bg-black/50 transition-all duration-300"
           >
             <Bookmark className={`w-5 h-5 ${isFavorite ? "fill-current" : ""}`} />
           </button>
@@ -48,23 +48,23 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
 
         <div className="p-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-white tracking-wide">{destination.name}</h3>
+            <h3 className="text-2xl font-bold text-card-foreground tracking-wide">{destination.name}</h3>
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 text-yellow-400 fill-current" />
-              <span className="text-white font-medium">{destination.rating}</span>
+              <span className="text-card-foreground font-medium">{destination.rating}</span>
             </div>
           </div>
 
-          <p className="text-white/80 mb-4 text-sm leading-relaxed">{destination.description}</p>
+          <p className="text-card-foreground mb-4 text-sm leading-relaxed">{destination.description}</p>
 
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2 text-white/70 text-sm">
+            <div className="flex items-center gap-2 text-card-foreground text-sm">
               <Calendar className="w-4 h-4" />
               <span>{destination.duration}</span>
             </div>
             <div className="text-right">
-              <div className="text-2xl font-bold text-white">{destination.price}</div>
-              <div className="text-white/70 text-sm">{destination.groupSize}</div>
+              <div className="text-2xl font-bold text-card-foreground">{destination.price}</div>
+              <div className="text-card-foreground text-sm">{destination.groupSize}</div>
             </div>
           </div>
 
@@ -72,14 +72,14 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
             {destination.highlights.slice(0, 2).map((h, i) => (
               <span
                 key={`${destination.id}-${h}`}
-                className="text-xs bg-white/10 text-white px-3 py-1 rounded-full border border-white/20"
+                className="text-xs bg-card text-card-foreground px-3 py-1 rounded-full border border-border"
               >
                 {h}
               </span>
             ))}
           </div>
 
-          <button className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-white py-3 rounded-full font-semibold hover:from-orange-500 hover:to-red-600 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2">
+          <button className="w-full bg-primary text-primary-foreground py-3 rounded-full font-semibold hover:from-orange-500 hover:to-red-600 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2">
             Explore <ArrowRight className="w-4 h-4" />
           </button>
         </div>
