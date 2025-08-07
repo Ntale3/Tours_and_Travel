@@ -197,14 +197,14 @@ const BlogPage: React.FC = () => {
                   placeholder="Search articles..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-white/10 backdrop-blur-md border border-border rounded-full py-3 pl-12 pr-4 text-white placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  className="w-full bg-input backdrop-blur-md border border-border rounded-full py-3 pl-12 pr-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                 />
               </div>
 
               {/* Share Your Journey Button */}
               <button
                 onClick={() => setShowCreateModal(true)}
-                className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold  rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 flex items-center gap-2 px-2 text-sm md:text-md lg:text-lg"
+                className="bg-primary  text-primary-foreground font-semibold  rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 flex items-center gap-2 px-2 text-sm md:text-md lg:text-lg"
               >
                 <Plus className="w-6 h-6" />
                 Share Your Journey
@@ -220,8 +220,8 @@ const BlogPage: React.FC = () => {
                 onClick={() => setActiveFilter(category)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeFilter === category
-                    ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/25'
-                    : ' backdrop-blur-md text-foreground  border border-border'
+                    ? 'bg-primary text-primary-foreground shadow-lg'
+                    : 'bg-secondary backdrop-blur-md text-secondary-foreground  border border-border'
                 }`}
               >
                 {category}
@@ -241,7 +241,7 @@ const BlogPage: React.FC = () => {
                 {featuredPosts.map((post) => (
                   <article
                     key={post.id}
-                    className="group bg-card backdrop-blur-md rounded-2xl overflow-hidden border border-border hover:border-accent transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/10"
+                    className="group bg-card backdrop-blur-md rounded-2xl overflow-hidden border border-border hover:border-secondary transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-secondary"
                   >
                     <div className="relative overflow-hidden">
                       <img
@@ -250,7 +250,7 @@ const BlogPage: React.FC = () => {
                         className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-medium">
                           {post.category}
                         </span>
                       </div>
@@ -263,7 +263,7 @@ const BlogPage: React.FC = () => {
                       )}
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-orange-800 transition-colors">
+                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                         {post.title}
                       </h3>
                       <p className="text-primary mb-4 line-clamp-2">
@@ -323,13 +323,13 @@ const BlogPage: React.FC = () => {
                     className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-medium">
+                    <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs font-medium">
                       {post.category}
                     </span>
                   </div>
                   {post.userGenerated && (
                     <div className="absolute top-3 right-3">
-                      <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">
+                      <span className="bg-muted text-muted-foreground px-2 py-1 rounded-full text-xs font-medium">
                         Community
                       </span>
                     </div>
@@ -337,10 +337,10 @@ const BlogPage: React.FC = () => {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-lg font-bold text-card-foreground mb-2 group-hover:text-orange-400 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-white/80 text-sm mb-4 line-clamp-2">
+                  <p className="text-card-foreground text-sm mb-4 line-clamp-2">
                     {post.excerpt}
                   </p>
 
@@ -409,18 +409,18 @@ const BlogPage: React.FC = () => {
       {/* Create Blog Post Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 dark:bg-black/50 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-          <div className="bg-white/10 backdrop-blur-md rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/20">
+          <div className="bg-secondary backdrop-blur-md rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/20">
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-white/20">
-              <h2 className="text-2xl font-bold text-white flex items-center gap-3">
-                <Plus className="w-6 h-6 text-orange-400" />
+            <div className="flex items-center justify-between p-6 border-b border-border">
+              <h2 className="text-2xl font-bold text-secondary-foregound flex items-center gap-3">
+                <Plus className="w-6 h-6 text-primary" />
                 Share Your Journey
               </h2>
               <button
                 onClick={() => setShowCreateModal(false)}
-                className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center transition-colors"
               >
-                <X className="w-5 h-5 text-white" />
+                <X className="w-5 h-5 text-primary-foreground" />
               </button>
             </div>
 
@@ -428,32 +428,32 @@ const BlogPage: React.FC = () => {
             <div className="p-6 space-y-6">
               {/* Title */}
               <div>
-                <label className="block text-white font-medium mb-2">Title *</label>
+                <label className="block text-secondary-foreground font-medium mb-2">Title *</label>
                 <input
                   type="text"
                   value={newPost.title}
                   onChange={(e) => setNewPost(prev => ({ ...prev, title: e.target.value }))}
                   placeholder="Give your story an amazing title..."
-                  className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl py-3 px-4 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                  className="w-full bg-input backdrop-blur-md border border-border rounded-xl py-3 px-4  placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
 
               {/* Category and Location */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-white font-medium mb-2">Category *</label>
+                  <label className="block text-secondary-foreground font-medium mb-2">Category *</label>
                   <select
                     value={newPost.category}
                     onChange={(e) => setNewPost(prev => ({ ...prev, category: e.target.value }))}
-                    className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    className="w-full bg-input text-foreground  backdrop-blur-md border border-border rounded-xl py-3 px-4  placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     {categories.map(cat => (
-                      <option key={cat} value={cat} className="bg-gray-800">{cat}</option>
+                      <option key={cat} value={cat} className="bg-primary text-primary-foreground">{cat}</option>
                     ))}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-white font-medium mb-2">Location</label>
+                  <label className="block text-secondary-foreground font-medium mb-2">Location</label>
                   <div className="relative">
                     <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
                     <input
@@ -461,7 +461,7 @@ const BlogPage: React.FC = () => {
                       value={newPost.location}
                       onChange={(e) => setNewPost(prev => ({ ...prev, location: e.target.value }))}
                       placeholder="Where did this happen?"
-                      className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl py-3 pl-10 pr-4 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                      className="w-full bg-input backdrop-blur-md border border-border rounded-xl py-3 pl-10 pr-4 text-secondary-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-400"
                     />
                   </div>
                 </div>
@@ -469,39 +469,39 @@ const BlogPage: React.FC = () => {
 
               {/* Cover Image */}
               <div>
-                <label className="block text-white font-medium mb-2">Cover Image</label>
-                <div className="border-2 border-dashed border-white/30 rounded-xl p-8 text-center hover:border-orange-400/50 transition-colors">
-                  <Upload className="w-12 h-12 text-white/60 mx-auto mb-4" />
-                  <p className="text-white/80 mb-2">Drop your image here or click to browse</p>
-                  <p className="text-white/60 text-sm">Supports: JPG, PNG, WebP (Max 5MB)</p>
+                <label className="block text-secondary-foreground font-medium mb-2">Cover Image</label>
+                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-primary transition-colors">
+                  <Upload className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground mb-2">Drop your image here or click to browse</p>
+                  <p className="text-muted-foreground text-sm">Supports: JPG, PNG, WebP (Max 5MB)</p>
                   <input
                     type="url"
                     value={newPost.image}
                     onChange={(e) => setNewPost(prev => ({ ...prev, image: e.target.value }))}
                     placeholder="Or paste image URL..."
-                    className="w-full mt-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg py-2 px-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    className="w-full mt-4 bg-input backdrop-blur-md border border-border rounded-lg py-2 px-3 text-secondary-foreground placeholder:muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
               </div>
 
               {/* Excerpt */}
               <div>
-                <label className="block text-white font-medium mb-2">Excerpt *</label>
+                <label className="block text-secondary-foreground font-medium mb-2">Excerpt *</label>
                 <textarea
                   value={newPost.excerpt}
                   onChange={(e) => setNewPost(prev => ({ ...prev, excerpt: e.target.value }))}
                   placeholder="Write a compelling summary of your story (150-200 characters)..."
                   rows={3}
-                  className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl py-3 px-4 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
+                  className="w-full bg-input backdrop-blur-md border border-border rounded-xl py-3 px-4 text-secondary-foreground placeholder:white/60 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                 />
-                <div className="text-right text-white/60 text-sm mt-1">
+                <div className="text-right text-secondary-foreground text-sm mt-1">
                   {newPost.excerpt.length}/200
                 </div>
               </div>
 
               {/* Tags */}
               <div>
-                <label className="block text-white font-medium mb-2">Tags</label>
+                <label className="block text-secondary-foreground font-medium mb-2">Tags</label>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {newPost.tags.map((tag, index) => (
                     <span
@@ -527,12 +527,12 @@ const BlogPage: React.FC = () => {
                       onChange={(e) => setCurrentTag(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddTag())}
                       placeholder="Add tags (travel, solo, budget...)"
-                      className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl py-2 pl-10 pr-4 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                      className="w-full bg-input backdrop-blur-md border border-border rounded-xl py-2 pl-10 pr-4 text-secondary-foreground placeholder:muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <button
                     onClick={handleAddTag}
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl transition-colors"
+                    className="bg-primary hover:bg-orange-700 text-primary-foreground px-4 py-2 rounded-xl transition-colors"
                   >
                     Add
                   </button>
@@ -541,13 +541,13 @@ const BlogPage: React.FC = () => {
 
               {/* Content */}
               <div>
-                <label className="block text-white font-medium mb-2">Your Story *</label>
+                <label className="block text-secondary-foreground font-medium mb-2">Your Story *</label>
                 <textarea
                   value={newPost.content}
                   onChange={(e) => setNewPost(prev => ({ ...prev, content: e.target.value }))}
                   placeholder="Share your amazing travel experience... Tell us about the places you visited, people you met, challenges you faced, and memories you made. Be detailed and authentic!"
                   rows={12}
-                  className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl py-4 px-4 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
+                  className="w-full bg-input backdrop-blur-md border border-border rounded-xl py-4 px-4 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
                 />
                 <div className="text-right text-white/60 text-sm mt-1">
                   {newPost.content.length} characters (minimum 500 recommended)
@@ -555,9 +555,9 @@ const BlogPage: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex justify-between items-center p-4 border-t border-white/20 mb-4">
+              <div className="flex justify-between items-center p-4 border-t border-border mb-4">
                 <div className="flex gap-3 mr-3 md:mr-0">
-                  <button className="flex items-center gap-2  text-white/80 hover:text-white transition-colors">
+                  <button className="flex items-center gap-2  text-secondary-foreground  transition-colors">
                     <Eye className="w-4 h-4" />
                     Preview
                   </button>
@@ -566,7 +566,7 @@ const BlogPage: React.FC = () => {
                 <div className="flex gap-3">
                   <button
                     onClick={() => handleSubmitPost('draft')}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl transition-colors border border-white/20"
+                    className="flex items-center gap-2 bg-primary hover:bg-orange-700 text-white px-6 py-3 rounded-xl transition-colors border border-white/20"
                   >
                     <Save className="w-4 h-4" />
                     Save Draft

@@ -69,7 +69,7 @@ const About: React.FC = () => {
     <>
 
 
-    <div className="min-h-screen bg-gradient-to-br from-teal-400 via-black to-orange-600">
+    <div className="min-h-screen bg-background">
         {/* Navigation */}
 
         <Header/>
@@ -77,24 +77,24 @@ const About: React.FC = () => {
         <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
                 About <span className="text-orange-400">Foxico</span>
               </h1>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 We're passionate about creating extraordinary travel experiences that connect you
                 with the world's most beautiful destinations and cultures.
               </p>
             </div>
 
             {/* Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 ">
               {stats.map((stat) => (
-                <div key={stat.id} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                <div key={stat.id} className="bg-card backdrop-blur-md rounded-2xl p-6 text-center hover:bg-secondary border border-border transition-all duration-300 transform hover:scale-105">
                   <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  <div className="text-2xl md:text-3xl font-bold text-card-foreground mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-white/80 text-sm md:text-base">
+                  <div className="text-card-foreground text-sm md:text-base">
                     {stat.label}
                   </div>
                 </div>
@@ -104,9 +104,9 @@ const About: React.FC = () => {
         </section>
 
         {/* Content Sections */}
-        <section className="bg-white/95 backdrop-blur-md">
+        <section className="backdrop-blur-md">
           {/* Section Navigation */}
-          <div className="border-b border-gray-200">
+          <div className="border-b border-muted bg-secondary">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <nav className="flex space-x-8 overflow-x-auto">
                 {[
@@ -121,7 +121,7 @@ const About: React.FC = () => {
                     className={`py-4 px-2 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
                       activeSection === section.id
                         ? 'border-orange-500 text-orange-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                        : 'border-transparent text-secondary-foreground hover:text-foreground hover:border-gray-300'
                     }`}
                   >
                     {section.label}
@@ -132,19 +132,20 @@ const About: React.FC = () => {
           </div>
 
           {/* Story Section */}
+          <div className="bg-background ">
           {activeSection === 'story' && (
             <div className="py-16 px-4 sm:px-6 lg:px-8">
               <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className="space-y-6">
-                    <h2 className="text-3xl font-bold text-gray-900">
+                    <h2 className="text-3xl font-bold text-primary">
                       Our Story Began in 2008
                     </h2>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-lg text-foreground leading-relaxed">
                       What started as a small passion project to help friends discover hidden gems
                       around the world has grown into a trusted platform serving thousands of travelers.
                     </p>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-lg text-foreground leading-relaxed">
                       We believe that travel is more than just visiting places – it's about creating
                       connections, understanding cultures, and building memories that last a lifetime.
                     </p>
@@ -162,8 +163,8 @@ const About: React.FC = () => {
                   </div>
                   <div className="relative">
                     <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-xl">
-                      <Image
-                        src="/api/placeholder/600/450"
+                      <img
+                        src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800&h=600&fit=crop"
                         alt="Our Story"
                         width={600}
                         height={450}
@@ -179,12 +180,12 @@ const About: React.FC = () => {
 
           {/* Mission Section */}
           {activeSection === 'mission' && (
-            <div className="py-16 px-4 sm:px-6 lg:px-8">
+            <div className="py-16 px-4 sm:px-6 lg:px-8 bg-card">
               <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                <h2 className="text-3xl font-bold text-primary mb-8">
                   Our Mission
                 </h2>
-                <p className="text-xl text-gray-700 leading-relaxed mb-12">
+                <p className="text-xl text-foreground leading-relaxed mb-12">
                   To make extraordinary travel accessible to everyone while promoting sustainable
                   tourism and supporting local communities worldwide.
                 </p>
@@ -221,17 +222,17 @@ const About: React.FC = () => {
             <div className="py-16 px-4 sm:px-6 lg:px-8">
               <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  <h2 className="text-3xl font-bold text-primary mb-4">
                     Meet Our Team
                   </h2>
-                  <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                  <p className="text-xl text-foreground max-w-3xl mx-auto">
                     The passionate individuals behind Foxico who work tirelessly to make your travel dreams come true.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {teamMembers.map((member) => (
-                    <div key={member.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div key={member.id} className="bg-card rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                       <div className="aspect-w-1 aspect-h-1">
                         <Image
                           src={member.image}
@@ -242,13 +243,13 @@ const About: React.FC = () => {
                         />
                       </div>
                       <div className="p-6">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                        <h3 className="text-xl font-semibold text-card-foreground mb-1">
                           {member.name}
                         </h3>
-                        <p className="text-orange-600 font-medium mb-3">
+                        <p className="text-secondary-foreground font-medium mb-3">
                           {member.role}
                         </p>
-                        <p className="text-gray-700 text-sm leading-relaxed">
+                        <p className="text-foreground text-sm leading-relaxed">
                           {member.bio}
                         </p>
                       </div>
@@ -261,56 +262,56 @@ const About: React.FC = () => {
 
           {/* Values Section */}
           {activeSection === 'values' && (
-            <div className="py-16 px-4 sm:px-6 lg:px-8">
+            <div className="py-16 px-4 sm:px-6 lg:px-8 ">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+                <h2 className="text-3xl font-bold text-primary text-center mb-12">
                   Our Core Values
                 </h2>
 
                 <div className="space-y-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                  <div className="flex items-start space-x-4 bg-card p-6 rounded-xl border border-border hover:bg-secondary">
+                    <div className="flex-shrink-0 w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
                       <span className="text-xl">🎯</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Excellence</h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <h3 className="text-xl font-semibold text-primary mb-2">Excellence</h3>
+                      <p className="text-muted-foreground leading-relaxed">
                         We strive for excellence in every aspect of our service, from trip planning to customer support.
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <div className="flex items-start space-x-4 bg-card p-6 rounded-xl border border-border hover:bg-secondary">
+                    <div className="flex-shrink-0 w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
                       <span className="text-xl">💙</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Integrity</h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <h3 className="text-xl font-semibold text-primary mb-2">Integrity</h3>
+                      <p className="text-muted-foreground leading-relaxed">
                         Honesty and transparency guide all our interactions with travelers and partners.
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="flex items-start space-x-4 bg-card rounded-xl p-6 border border-border hover:bg-secondary">
+                    <div className="flex-shrink-0 w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
                       <span className="text-xl">🌟</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Innovation</h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <h3 className="text-xl font-semibold text-primary mb-2">Innovation</h3>
+                      <p className="text-muted-foreground leading-relaxed">
                         We continuously innovate to provide better, more personalized travel experiences.
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                  <div className="flex items-start space-x-4 bg-card p-6 rounded-xl border border-border hover:bg-secondary">
+                    <div className="flex-shrink-0 w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
                       <span className="text-xl">🤗</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Inclusivity</h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <h3 className="text-xl font-semibold text-primary mb-2">Inclusivity</h3>
+                      <p className="text-muted-foreground leading-relaxed">
                         We believe travel should be accessible and welcoming to people from all backgrounds.
                       </p>
                     </div>
@@ -319,6 +320,7 @@ const About: React.FC = () => {
               </div>
             </div>
           )}
+          </div>
         </section>
 
         {/* CTA Section */}

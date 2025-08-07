@@ -180,11 +180,11 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       {/* Header remains unchanged */}
 
       <main className="container mx-auto px-4 py-20">
-        <h1 className="text-5xl md:text-6xl font-bold text-white text-center mb-6">
+        <h1 className="text-5xl md:text-6xl font-bold text-foreground text-center mb-6">
           Photo Gallery
         </h1>
 
