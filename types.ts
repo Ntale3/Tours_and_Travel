@@ -1,4 +1,4 @@
-export interface GalleryImage {  
+export interface GalleryImage {
 id: string;
 src: string;
 alt: string;
@@ -14,7 +14,7 @@ tags: string[],
 description: string,
 photographer: string,
 featured: boolean
-    
+
 }
 
 export interface FilterOption {
@@ -40,8 +40,35 @@ bestTime: string
 
 export interface categoryType
 {
- id:string,  
+ id:string,
  name:string,
  icon?:string
 
+}
+
+export interface Office {
+    id: number;
+    city: string;
+    country: string;
+    address: string;
+    phone: string;
+    email: string;
+    timezone: string;
+    image: string;
+  }
+
+
+  export interface FAQ {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export interface ContactMethod {
+  id: number;
+  icon: string;
+  title: string;
+  description: string;
+  value: string;
+  action: string;
 }
