@@ -72,7 +72,7 @@ const DestinationPage = () => {
 
   return (
     <div>
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
 
       {/* Hero Section */}
       <div className="relative h-screen overflow-hidden">
@@ -157,10 +157,10 @@ const DestinationPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-bold mb-6 text-primary">
                 Experience Paradise
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-foreground mb-8">
                 Immerse yourself in the enchanting beauty of Bali, where ancient temples meet pristine beaches,
                 and lush rice terraces cascade down volcanic slopes. Our exclusive resort offers the perfect blend
                 of luxury and authentic Balinese culture.
@@ -168,15 +168,15 @@ const DestinationPage = () => {
               <div className="grid grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-emerald-500" />
-                    <span className="text-gray-700">{feature}</span>
+                    <Check className="w-5 h-5 text-orange-500" />
+                    <span className="text-accent-foreground">{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-3xl shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6 text-center">Package Includes</h3>
+              <div className="bg-secondary p-8 rounded-3xl shadow-2xl">
+                <h3 className="text-2xl font-bold mb-6 text-center text-secondary-foreground">Package Includes</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span>Luxury Accommodation</span>
@@ -210,14 +210,14 @@ const DestinationPage = () => {
             <h3 className="text-3xl font-bold text-center mb-12">What Our Guests Say</h3>
             <div className="grid md:grid-cols-3 gap-8">
               {reviews.map((review, index) => (
-                <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div key={index} className="bg-card border-border p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(review.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-4">"{review.comment}"</p>
-                  <p className="font-semibold text-emerald-600">- {review.name}</p>
+                  <p className="text-card-foreground mb-4">"{review.comment}"</p>
+                  <p className="font-semibold text-card-foreground">- {review.name}</p>
                 </div>
               ))}
             </div>
@@ -227,8 +227,8 @@ const DestinationPage = () => {
 
       {/* Booking Modal */}
       {isBookingOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 top-6 md:top-[50px] bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 mt-4">
+          <div className="bg-background rounded-3xl max-w-2xl w-full max-h-[90vh]  overflow-y-auto">
             <div className="p-8">
               <div className="flex justify-between items-center mb-8">
                 <h2 className="text-3xl font-bold">
@@ -239,7 +239,7 @@ const DestinationPage = () => {
                     setIsBookingOpen(false);
                     setBookingStep(1);
                   }}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="p-2 bg-primary text-primary-foreground hover:bg-gray-100 rounded-full transition-colors"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -249,13 +249,13 @@ const DestinationPage = () => {
               <div className="flex items-center justify-center mb-8">
                 <div className="flex items-center">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                    bookingStep >= 1 ? 'bg-emerald-500 text-white' : 'bg-gray-200'
+                    bookingStep >= 1 ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'
                   }`}>
                     1
                   </div>
-                  <div className={`w-16 h-1 ${bookingStep >= 2 ? 'bg-emerald-500' : 'bg-gray-200'}`}></div>
+                  <div className={`w-16 h-1 ${bookingStep >= 2 ? 'bg-primary' : 'bg-secondary'}`}></div>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                    bookingStep >= 2 ? 'bg-emerald-500 text-white' : 'bg-gray-200'
+                    bookingStep >= 2 ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'
                   }`}>
                     2
                   </div>
@@ -268,7 +268,7 @@ const DestinationPage = () => {
                     {/* Personal Information */}
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-foreground mb-2">
                           Full Name *
                         </label>
                         <input
@@ -276,12 +276,12 @@ const DestinationPage = () => {
                           required
                           value={bookingForm.name}
                           onChange={(e) => setBookingForm({...bookingForm, name: e.target.value})}
-                          className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                          className="w-full p-4 border border-border rounded-xl transition-all"
                           placeholder="Enter your full name"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-foreground mb-2">
                           Email Address *
                         </label>
                         <input
@@ -289,7 +289,7 @@ const DestinationPage = () => {
                           required
                           value={bookingForm.email}
                           onChange={(e) => setBookingForm({...bookingForm, email: e.target.value})}
-                          className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                          className="w-full p-4 border border-border rounded-xl transition-all"
                           placeholder="your.email@example.com"
                         />
                       </div>
@@ -305,18 +305,18 @@ const DestinationPage = () => {
                           required
                           value={bookingForm.phone}
                           onChange={(e) => setBookingForm({...bookingForm, phone: e.target.value})}
-                          className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                          className="w-full p-4 border border-border rounded-xl text-foreground transition-all"
                           placeholder="+256 700 000 000"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-foreground mb-2">
                           Number of People *
                         </label>
                         <select
                           value={bookingForm.numberOfPeople}
                           onChange={(e) => setBookingForm({...bookingForm, numberOfPeople: parseInt(e.target.value)})}
-                          className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                          className="w-full p-4 border border-border rounded-xl bg-card transition-all"
                         >
                           {[1,2,3,4,5,6,7,8].map(num => (
                             <option key={num} value={num}>{num} {num === 1 ? 'Person' : 'People'}</option>
@@ -335,7 +335,7 @@ const DestinationPage = () => {
                           required
                           value={bookingForm.checkIn}
                           onChange={(e) => setBookingForm({...bookingForm, checkIn: e.target.value})}
-                          className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                          className="w-full p-4 border border-border rounded-xl transition-all"
                         />
                       </div>
                       <div>
@@ -347,16 +347,16 @@ const DestinationPage = () => {
                           required
                           value={bookingForm.checkOut}
                           onChange={(e) => setBookingForm({...bookingForm, checkOut: e.target.value})}
-                          className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                          className="w-full p-4 border border-border rounded-xl transition-all"
                         />
                       </div>
                     </div>
 
                     {/* Price Summary */}
-                    <div className="bg-emerald-50 p-6 rounded-xl">
+                    <div className="bg-card p-6 rounded-xl">
                       <h4 className="font-semibold mb-4">Booking Summary</h4>
                       <div className="space-y-2">
-                        <div className="flex justify-between">
+                        <div className="flex justify-between text-card-foreground">
                           <span>Price per person/night:</span>
                           <span>$150</span>
                         </div>
@@ -366,38 +366,38 @@ const DestinationPage = () => {
                         </div>
                         <div className="flex justify-between font-bold text-lg border-t pt-2">
                           <span>Total per night:</span>
-                          <span className="text-emerald-600">${totalPrice}</span>
+                          <span className="text-orange-500">${totalPrice}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-6">
-                    <div className="bg-gray-50 p-6 rounded-xl">
-                      <h4 className="font-semibold mb-4">Booking Details</h4>
+                    <div className=" p-6 rounded-xl bg-card border border-border">
+                      <h4 className="font-semibold mb-4 text-card-foreground">Booking Details</h4>
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                          <span className="text-gray-600">Name:</span>
-                          <p className="font-semibold">{bookingForm.name}</p>
+                          <span className="text-card-foreground">Name:</span>
+                          <p className="font-semibold text-accent-foreground">{bookingForm.name}</p>
                         </div>
                         <div>
-                          <span className="text-gray-600">People:</span>
-                          <p className="font-semibold">{bookingForm.numberOfPeople}</p>
+                          <span className="text-card-foreground">People:</span>
+                          <p className="font-semibold text-accent-foreground">{bookingForm.numberOfPeople}</p>
                         </div>
                         <div>
-                          <span className="text-gray-600">Check-in:</span>
-                          <p className="font-semibold">{bookingForm.checkIn}</p>
+                          <span className="text-card-foreground">Check-in:</span>
+                          <p className="font-semibold text-accent-foreground">{bookingForm.checkIn}</p>
                         </div>
                         <div>
-                          <span className="text-gray-600">Check-out:</span>
-                          <p className="font-semibold">{bookingForm.checkOut}</p>
+                          <span className="text-card-foreground">Check-out:</span>
+                          <p className="font-semibold text-accent-foreground">{bookingForm.checkOut}</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Payment Method Selection */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-4">
+                      <label className="block text-sm font-semibold text-card-foreground mb-4">
                         Select Payment Method *
                       </label>
                       <div className="grid grid-cols-2 gap-4">
@@ -406,7 +406,7 @@ const DestinationPage = () => {
                           onClick={() => setBookingForm({...bookingForm, paymentMethod: 'mtn'})}
                           className={`p-6 border-2 rounded-xl transition-all duration-300 ${
                             bookingForm.paymentMethod === 'mtn'
-                              ? 'border-yellow-500 bg-yellow-50'
+                              ? 'border-yellow-500 bg-yellow-50 '
                               : 'border-gray-200 hover:border-yellow-300'
                           }`}
                         >
@@ -414,8 +414,8 @@ const DestinationPage = () => {
                             <div className="w-16 h-16 bg-yellow-500 rounded-full mx-auto mb-3 flex items-center justify-center text-white font-bold text-xl">
                               MTN
                             </div>
-                            <p className="font-semibold">MTN Mobile Money</p>
-                            <p className="text-sm text-gray-600">Pay with MTN MoMo</p>
+                            <p className="font-semibold  text-card-foreground ">MTN Mobile Money</p>
+                            <p className="text-sm text-muted-foreground">Pay with MTN MoMo</p>
                           </div>
                         </button>
                         <button
@@ -431,20 +431,20 @@ const DestinationPage = () => {
                             <div className="w-16 h-16 bg-red-500 rounded-full mx-auto mb-3 flex items-center justify-center text-white font-bold">
                               <Phone className="w-8 h-8" />
                             </div>
-                            <p className="font-semibold">Airtel Money</p>
-                            <p className="text-sm text-gray-600">Pay with Airtel Money</p>
+                            <p className="font-semibold text-card-foreground">Airtel Money</p>
+                            <p className="text-sm text-muted-foreground">Pay with Airtel Money</p>
                           </div>
                         </button>
                       </div>
                     </div>
 
                     {/* Total Amount */}
-                    <div className="bg-emerald-50 p-6 rounded-xl">
-                      <div className="flex justify-between items-center text-xl font-bold">
+                    <div className="bg-card border border-border p-6 rounded-xl">
+                      <div className="flex justify-between text-card-foreground items-center text-xl font-bold">
                         <span>Total Amount to Pay:</span>
-                        <span className="text-emerald-600">${totalPrice}/night</span>
+                        <span className="text-orange-500">${totalPrice}/night</span>
                       </div>
-                      <p className="text-sm text-gray-600 mt-2">
+                      <p className="text-sm mt-2 text-accent-foreground">
                         You'll be redirected to {bookingForm.paymentMethod.toUpperCase()} to complete payment
                       </p>
                     </div>
@@ -457,7 +457,7 @@ const DestinationPage = () => {
                     <button
                       type="button"
                       onClick={() => setBookingStep(1)}
-                      className="flex-1 px-6 py-4 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors"
+                      className="flex-1 px-6 py-4 border border-border bg-secondary text-secondary-foreground  rounded-xl  transition-colors"
                     >
                       Back
                     </button>
@@ -466,7 +466,7 @@ const DestinationPage = () => {
                     type="button"
                     onClick={handleBookingSubmit}
                     disabled={bookingStep === 2 && !bookingForm.paymentMethod}
-                    className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:from-gray-300 disabled:to-gray-300 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 disabled:scale-100"
+                    className="flex-1 bg-primary text-primary-foreground hover:from-emerald-600 hover:to-teal-600 disabled:from-gray-300 disabled:to-gray-300 px-6 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 disabled:scale-100"
                   >
                     {bookingStep === 1 ? 'Continue to Payment' : 'Confirm Booking'}
                   </button>
