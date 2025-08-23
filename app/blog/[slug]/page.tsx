@@ -45,19 +45,6 @@ const BlogDetailPage: React.FC = () => {
 
       <p>The 300-step climb to Wat Phra That Doi Suthep tested my endurance, but the reward was magnificent. Perched 1,073 meters above sea level, this temple offers panoramic views of Chiang Mai below. The golden chedi at the center houses a relic of Buddha, and pilgrims from around the world come here to pay their respects.</p>
 
-      <p>What struck me most was the devotion of the local visitors. Families would climb the steps together, carrying flowers and incense, their faces filled with quiet reverence. Children as young as five made the entire climb without complaint, understanding the significance of their journey.</p>
-
-      <h2>Into the Jungle: Wat Pa Thammachat</h2>
-
-      <p>The most challenging part of our journey was reaching Wat Pa Thammachat, a forest monastery hidden deep in the mountains. The two-hour hike through thick jungle tested our resolve, but our local guide, Somchai, kept our spirits high with stories of the monks who had walked these same paths for decades.</p>
-
-      <p>The monastery itself is incredibly simple – just a few wooden structures built in harmony with the natural environment. The monks here practice meditation in caves and follow strict rules of simplicity. Meeting the head monk, who had lived there for 30 years, was a profound experience. Despite the language barrier, his peaceful presence and gentle smile communicated more than words ever could.</p>
-
-      <h2>Lessons from the Journey</h2>
-
-      <p>This spiritual journey taught me that travel isn't just about collecting passport stamps or Instagram photos. It's about opening yourself to experiences that challenge your perspective and connect you with something larger than yourself. The temples of Northern Thailand offer this in abundance – each one a doorway to understanding, peace, and personal growth.</p>
-
-      <p>If you're planning a similar journey, I recommend traveling with a local guide who can provide cultural context and ensure you're being respectful of sacred spaces. Dress modestly, remove your shoes when required, and approach each temple with an open heart and mind.</p>
     `,
     excerpt: "Discover the mystical temples tucked away in Thailand's mountainous north, where ancient traditions meet breathtaking landscapes.",
     category: "Culture",
@@ -140,7 +127,7 @@ const BlogDetailPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
+    <div className="min-h-screen bg-background">
       {/* Header */}
 
 
@@ -148,13 +135,13 @@ const BlogDetailPage: React.FC = () => {
       <main className="pt-24 pb-12">
         <div className="max-w-4xl mx-auto px-6">
           {/* Back Button */}
-          <button className="flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8 group">
+          <button className="flex items-center gap-2 text-foreground hover:text-orange-400 transition-colors mb-8 group">
             <ArrowLeft className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
             Back to Blog
           </button>
 
           {/* Article Header */}
-          <article className="bg-white/10 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 mb-8">
+          <article className="bg-background backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 mb-8">
             {/* Hero Image */}
             <div className="relative h-96 overflow-hidden">
               <img
@@ -185,7 +172,7 @@ const BlogDetailPage: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setShowShareModal(true)}
-                  className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all"
+                  className="w-12 h-12 bg-card border border-foreground backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all"
                 >
                   <Share2 className="w-5 h-5 mx-auto" />
                 </button>
@@ -196,11 +183,11 @@ const BlogDetailPage: React.FC = () => {
             <div className="p-8">
               {/* Title and Meta */}
               <div className="mb-8">
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
                   {blogPost.title}
                 </h1>
 
-                <div className="flex flex-wrap items-center gap-6 text-white/70 mb-6">
+                <div className="flex flex-wrap items-center gap-6 text-foreground mb-6">
                   <div className="flex items-center gap-2">
                     <User className="w-4 h-4" />
                     <span>{blogPost.author}</span>
@@ -224,7 +211,7 @@ const BlogDetailPage: React.FC = () => {
                   {blogPost.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm border border-orange-400/30"
+                      className="bg-secondary text-secondary-foreground hover:bg-primary px-3 py-1 rounded-full text-sm border border-border hover:text-primary-foreground"
                     >
                       #{tag}
                     </span>
@@ -232,7 +219,7 @@ const BlogDetailPage: React.FC = () => {
                 </div>
 
                 {/* Engagement Stats */}
-                <div className="flex items-center gap-6 text-white/60">
+                <div className="flex items-center gap-6 text-foreground">
                   <button
                     onClick={() => setIsLiked(!isLiked)}
                     className={`flex items-center gap-2 transition-colors ${
@@ -264,7 +251,7 @@ const BlogDetailPage: React.FC = () => {
               />
 
               {/* Author Card */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 mb-8">
+              <div className="bg-card backdrop-blur-md rounded-2xl p-6 border border-border mb-8">
                 <div className="flex items-start gap-4">
                   <img
                     src={blogPost.authorAvatar}
@@ -272,9 +259,9 @@ const BlogDetailPage: React.FC = () => {
                     className="w-16 h-16 rounded-full object-cover"
                   />
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">About {blogPost.author}</h3>
-                    <p className="text-white/80 mb-4">{blogPost.authorBio}</p>
-                    <button className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105">
+                    <h3 className="text-xl font-bold text-card-foreground mb-2">About {blogPost.author}</h3>
+                    <p className="text-card-foreground mb-4">{blogPost.authorBio}</p>
+                    <button className="bg-primary text-primary-foreground px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105">
                       Follow
                     </button>
                   </div>
@@ -283,13 +270,13 @@ const BlogDetailPage: React.FC = () => {
 
               {/* Comments Section */}
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-6">Comments ({comments.length})</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Comments ({comments.length})</h3>
 
                 {/* Add Comment */}
-                <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 mb-6">
+                <div className="bg-card backdrop-blur-md rounded-2xl p-6 border border-border mb-6">
                   <div className="flex gap-4">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                      <User className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                      <User className="w-5 h-5 text-primary-foreground" />
                     </div>
                     <div className="flex-1">
                       <textarea
@@ -297,11 +284,11 @@ const BlogDetailPage: React.FC = () => {
                         onChange={(e) => setNewComment(e.target.value)}
                         placeholder="Share your thoughts about this journey..."
                         rows={4}
-                        className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl py-3 px-4 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
+                        className="w-full bg-input  backdrop-blur-md border border-border rounded-xl py-3 px-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                       />
                       <div className="flex justify-between items-center mt-3">
-                        <span className="text-white/60 text-sm">{newComment.length}/500</span>
-                        <button className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                        <span className="text-foreground text-sm">{newComment.length}/500</span>
+                        <button className="bg-primary  hover:bg-secondary hover:text-secondary-foreground hover:border hover:border-primary text-primary-foreground px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
                           <Send className="w-4 h-4" />
                           Post Comment
                         </button>
@@ -313,7 +300,7 @@ const BlogDetailPage: React.FC = () => {
                 {/* Comments List */}
                 <div className="space-y-6">
                   {comments.map((comment) => (
-                    <div key={comment.id} className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+                    <div key={comment.id} className="bg-card backdrop-blur-md rounded-2xl p-6 border border-border">
                       <div className="flex items-start gap-4">
                         <img
                           src={comment.avatar}
@@ -322,20 +309,20 @@ const BlogDetailPage: React.FC = () => {
                         />
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <h4 className="font-semibold text-white">{comment.author}</h4>
-                            <span className="text-white/60 text-sm">{comment.date}</span>
+                            <h4 className="font-semibold text-card-foreground">{comment.author}</h4>
+                            <span className="text-card-foreground text-sm">{comment.date}</span>
                           </div>
-                          <p className="text-white/80 mb-3">{comment.content}</p>
+                          <p className="text-primary mb-3">{comment.content}</p>
                           <div className="flex items-center gap-4">
-                            <button className="flex items-center gap-1 text-white/60 hover:text-red-400 transition-colors">
+                            <button className="flex items-center gap-1 text-card-foreground hover:text-red-400 transition-colors">
                               <ThumbsUp className="w-4 h-4" />
                               {comment.likes}
                             </button>
-                            <button className="flex items-center gap-1 text-white/60 hover:text-orange-400 transition-colors">
+                            <button className="flex items-center gap-1 text-card-foreground hover:text-orange-400 transition-colors">
                               <Reply className="w-4 h-4" />
                               Reply
                             </button>
-                            <button className="text-white/60 hover:text-white transition-colors">
+                            <button className="text-card-foreground hover:text-white transition-colors">
                               <MoreHorizontal className="w-4 h-4" />
                             </button>
                           </div>
@@ -344,7 +331,7 @@ const BlogDetailPage: React.FC = () => {
                           {comment.replies && (
                             <div className="mt-4 pl-8 space-y-4">
                               {comment.replies.map((reply) => (
-                                <div key={reply.id} className="bg-white/5 rounded-xl p-4">
+                                <div key={reply.id} className="bg-secondary rounded-xl p-4">
                                   <div className="flex items-start gap-3">
                                     <img
                                       src={reply.avatar}
@@ -353,11 +340,11 @@ const BlogDetailPage: React.FC = () => {
                                     />
                                     <div className="flex-1">
                                       <div className="flex items-center gap-2 mb-1">
-                                        <h5 className="font-medium text-white text-sm">{reply.author}</h5>
-                                        <span className="text-white/60 text-xs">{reply.date}</span>
+                                        <h5 className="font-medium text-secondary-foreground text-sm">{reply.author}</h5>
+                                        <span className="text-secondary-foreground text-xs">{reply.date}</span>
                                       </div>
-                                      <p className="text-white/80 text-sm mb-2">{reply.content}</p>
-                                      <button className="flex items-center gap-1 text-white/60 hover:text-red-400 transition-colors text-sm">
+                                      <p className="text-secondary-foreground text-sm mb-2">{reply.content}</p>
+                                      <button className="flex items-center gap-1 text-secondary-foreground hover:text-red-400 transition-colors text-sm">
                                         <ThumbsUp className="w-3 h-3" />
                                         {reply.likes}
                                       </button>
@@ -378,7 +365,7 @@ const BlogDetailPage: React.FC = () => {
 
           {/* Related Posts */}
           <div className="mb-8">
-            <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <h3 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
               <BookOpen className="w-8 h-8 text-orange-400" />
               Related Stories
             </h3>

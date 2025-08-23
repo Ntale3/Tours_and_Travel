@@ -22,7 +22,7 @@ interface Props {
 
 const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => {
   return (
-    <Link href={'/blog/2'}>
+    <Link href={'/destinations/2'}>
     <div className="group relative">
       <div className="bg-card  rounded-3xl overflow-hidden border border-border hover:bg-secondary transition-all duration-500 transform hover:-translate-y-2">
         <div className="relative h-64 overflow-hidden">
