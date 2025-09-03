@@ -7,14 +7,7 @@ import {ModeToggle} from '@/components/Theme/ModeToggle'
 
 const navs=[
     { link: '/', name: 'Home',hyperLinks:[] },
-    { link: '/destinations', name: 'Destinations',
-      hyperLinks:[
-        // {link:'#',name:'Latest News'},
-        // {link:'#',name:'Breaking News'},
-        // {link:'#',name:'Sports'},
-        // {link:'#',name:'Technology'},
-        // {link:'#',name:'Politics'}
-      ]},
+    { link: '/destinations', name: 'Destinations' },
     { link: '/blog', name: 'Blog', hyperLinks:[] },
     { link: '/about', name: 'About' ,hyperLinks:[]},
     { link: '/contact', name: 'Contact',hyperLinks:[]},
@@ -87,7 +80,7 @@ const pathname = usePathname();
       </nav>
     </div>
     <div className="flex items-center space-x-4 justify-between">
-      <div className="bg-background w-8 h-8 rounded-full flex items-center justify-center hidden md:flex">
+      <div className="bg-background w-8 h-8 rounded-full  items-center justify-center hidden md:flex">
             <ModeToggle/>
       </div>
 

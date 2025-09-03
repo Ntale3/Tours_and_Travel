@@ -50,7 +50,7 @@ const pathname=usePathname();
                     ))}
                 </ul>
 
-            <div className="flex bg-sidebar-primary gap-3 items-center justify-center justify-between flex-end rounded-lg mt-4 ">
+            <div className="flex bg-sidebar-primary gap-3 items-center justify-center flex-end rounded-lg mt-4 ">
                 <p className="text-sidebar-primary-foreground">Appearance</p>
                  <div className="bg-card rounded-full w-8 h-8 flex items-center justify-center my-2 text-card-foreground">
                     <ModeToggle/>
