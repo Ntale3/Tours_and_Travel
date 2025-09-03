@@ -1,8 +1,10 @@
 'use client'
+import { GalleryImage } from "@/types";
 import { MapPin, Star, Calendar, Users } from "lucide-react";
+import Image from "next/image"
 
 interface Props {
-  image: any;
+  image: GalleryImage;
   index: number;
   onClick: () => void;
 }
@@ -17,7 +19,7 @@ export default function GalleryCard({ image, index, onClick }: Props) {
     >
       <div className="relative overflow-hidden rounded-2xl bg-card backdrop-blur-sm border border-border shadow-xl">
         <div className="aspect-w-4 aspect-h-3 relative h-64">
-          <img
+          <Image
             src={image.src}
             alt={`${image.alt} - ${image.destination}`}
             //fill

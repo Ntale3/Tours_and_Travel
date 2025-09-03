@@ -1,4 +1,5 @@
 import { Bookmark, Calendar, MapPin, Star } from "lucide-react";
+import Image from 'next/image'
 
 interface FeaturedCardProps {
 name: string;
@@ -15,7 +16,7 @@ export default function FeaturedCard({ destination }: {destination:FeaturedCardP
   return (
     <div className="bg-card backdrop-blur-md rounded-2xl p-6 border border-border hover:bg-secondary transition-all duration-500 transform hover:scale-105">
       <div className="relative mb-4 overflow-hidden rounded-xl">
-        <img
+        <Image
           src={destination.cardImage}
           alt={`Card for ${destination.name}`}
           className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"

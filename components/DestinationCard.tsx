@@ -1,5 +1,6 @@
 import { MapPin, Star, Calendar, Bookmark, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image"
 
 interface Destination {
   id: number;
@@ -26,7 +27,7 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
     <div className="group relative">
       <div className="bg-card  rounded-3xl overflow-hidden border border-border hover:bg-secondary transition-all duration-500 transform hover:-translate-y-2">
         <div className="relative h-64 overflow-hidden">
-          <img
+          <Image
             src={destination.image}
             alt={destination.name}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -69,7 +70,7 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
           </div>
 
           <div className="flex flex-wrap gap-2 mb-6">
-            {destination.highlights.slice(0, 2).map((h, i) => (
+            {destination.highlights.slice(0, 2).map((h) => (
               <span
                 key={`${destination.id}-${h}`}
                 className="text-xs bg-card text-card-foreground px-3 py-1 rounded-full border border-border"

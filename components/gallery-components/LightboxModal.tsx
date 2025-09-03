@@ -1,10 +1,10 @@
 'use client'
 import { ChevronLeft, ChevronRight, X, Star, Calendar, Users } from "lucide-react";
-import Image from "next/image";
-// import { GalleryImage } from "./types";
+import { GalleryImage } from "@/types";
+import Image from "next/image"
 
 interface Props {
-  image: any;
+  image: GalleryImage;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
@@ -43,7 +43,7 @@ export default function LightboxModal({ image, onClose, onPrev, onNext }: Props)
         </button>
 
         <div className="relative">
-          <img
+          <Image
             src={image.src}
             alt={image.alt}
             width={1200}

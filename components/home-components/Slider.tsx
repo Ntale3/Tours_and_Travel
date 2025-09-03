@@ -123,7 +123,7 @@ const Slider = ({destinations}:{destinations:destType[]}) => {
 
                         {/* Secondary Cards */}
                          <div className="space-y-10 lg:mt-42">
-                            {destinations.slice(1, 3).map((dest,_ ) => (
+                            {destinations.slice(1, 3).map((dest) => (
                              <MiniCard key={dest.id} destination={dest} onClick={() => goToSlide(destinations.findIndex(d => d.id === dest.id))}/>
                             ))}
                         </div>

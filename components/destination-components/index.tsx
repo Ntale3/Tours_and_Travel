@@ -16,17 +16,15 @@ const Destinations = ({destinations,categories}:{destinations:DestinationType[],
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [searchQuery, setSearchQuery] = useState("");
     const [favorites, setFavorites] = useState<Set<number>>(new Set());
-      // const [isLoading, setIsLoading] = useState(true);
-
-
-      // useEffect(() => {
-      //   setTimeout(() => setIsLoading(false), 1000);
-      // }, []);
 
       const toggleFavorite = (id: number) => {
         setFavorites((prev) => {
           const updated = new Set(prev);
-          updated.has(id) ? updated.delete(id) : updated.add(id);
+          if(updated.has(id)){
+            updated.delete(id)
+          }else{
+            updated.add(id);
+          }
           return updated;
         });
       };
@@ -37,17 +35,6 @@ const Destinations = ({destinations,categories}:{destinations:DestinationType[],
           (d.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             d.location.toLowerCase().includes(searchQuery.toLowerCase()))
       );
-
-      // if (isLoading) {
-      //   return (
-      //     <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-green-600 flex items-center justify-center">
-      //       <div className="text-center">
-      //         <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
-      //         <p className="text-white text-lg font-medium">Discovering tropical destinations...</p>
-      //       </div>
-      //     </div>
-      //   );
-      // }
 
 
 

@@ -1,9 +1,9 @@
 'use client'
-import { useState, useEffect, FormEvent } from 'react';
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Faqs from '@/components/contact-components/Faqs';
-import {faqs,offices,contactMethods} from '@/constants/DummyData'
+import {offices,contactMethods} from '@/constants/DummyData'
 import ContactForm from '@/components/contact-components/ContactForm';
 import Offices from '@/components/contact-components/Offices';
 
@@ -15,7 +15,7 @@ import Offices from '@/components/contact-components/Offices';
 
 
 const ContactIndex: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+ // const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>('contact');
 
 
@@ -23,14 +23,14 @@ const ContactIndex: React.FC = () => {
 
 
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 50);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
 
 

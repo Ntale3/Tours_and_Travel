@@ -1,4 +1,5 @@
 import { Office } from "@/types";
+import Image from "next/image";
 
 const Offices = ({offices}:{offices:Office[]})=>{
 
@@ -18,7 +19,7 @@ const Offices = ({offices}:{offices:Office[]})=>{
                   {offices.map((office) => (
                     <div key={office.id} className="bg-card border border-border rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                       <div className="aspect-w-16 aspect-h-9">
-                        <img
+                        <Image
                           src={office.image}
                           alt={`${office.city} office`}
                           width={400}

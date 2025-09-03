@@ -49,7 +49,8 @@ const ContactForm=()=>{
         travelType: '',
         budget: ''
       });
-    } catch (error) {
+
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -66,7 +67,7 @@ const ContactForm=()=>{
                     Send Us a Message
                   </h2>
                   <p className="text-xl text-muted-foreground">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Fill out the form below and we&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
 
@@ -198,7 +199,7 @@ const ContactForm=()=>{
                   {submitStatus === 'success' && (
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                       <p className="text-green-800 font-medium">
-                        ✅ Message sent successfully! We'll get back to you within 24 hours.
+                        ✅ Message sent successfully! We&apos;ll get back to you within 24 hours.
                       </p>
                     </div>
                   )}

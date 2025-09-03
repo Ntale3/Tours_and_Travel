@@ -12,6 +12,10 @@ RUN chown -R app:app /tours
 # Switch to non-root user
 USER app
 
+#copy package locker for cache
+
+COPY package*.json .
+
 # Install dependencies
 RUN npm install
 

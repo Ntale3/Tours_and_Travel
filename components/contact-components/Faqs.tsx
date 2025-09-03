@@ -1,14 +1,6 @@
 import { useState } from "react";
 import {faqs} from '@/constants/DummyData'
 
-interface FAQ {
-  id: number;
-  question: string;
-  answer: string;
-}
-
-
-
 
 
 export default function Faq({setActiveTab}:{setActiveTab:React.Dispatch<React.SetStateAction<string>>}){
@@ -62,7 +54,7 @@ export default function Faq({setActiveTab}:{setActiveTab:React.Dispatch<React.Se
 
                 <div className="text-center mt-12">
                   <p className="text-muted-foreground mb-4">
-                    Still have questions? We're here to help!
+                    Still have questions? We&apos;re here to help!
                   </p>
                   <button
                     onClick={() => setActiveTab('contact')}

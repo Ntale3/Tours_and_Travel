@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -81,8 +81,8 @@ const About: React.FC = () => {
                 About <span className="text-orange-400">Foxico</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                We're passionate about creating extraordinary travel experiences that connect you
-                with the world's most beautiful destinations and cultures.
+                We&apos;re passionate about creating extraordinary travel experiences that connect you
+                with the world&apos;s most beautiful destinations and cultures.
               </p>
             </div>
 
@@ -146,7 +146,7 @@ const About: React.FC = () => {
                       around the world has grown into a trusted platform serving thousands of travelers.
                     </p>
                     <p className="text-lg text-foreground leading-relaxed">
-                      We believe that travel is more than just visiting places – it's about creating
+                      We believe that travel is more than just visiting places – it&apos;s about creating
                       connections, understanding cultures, and building memories that last a lifetime.
                     </p>
                     <div className="flex flex-wrap gap-3">
@@ -163,12 +163,13 @@ const About: React.FC = () => {
                   </div>
                   <div className="relative">
                     <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-xl">
-                      <img
+                      <Image
                         src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800&h=600&fit=crop"
                         alt="Our Story"
                         width={600}
                         height={450}
                         className="w-full h-full object-cover"
+                        priority={false} // Optional: Set to true if this is a critical image (e.g., above the fold)
                       />
                     </div>
                     {/* <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-orange-400 to-pink-500 rounded-2xl opacity-20"></div> */}

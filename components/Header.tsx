@@ -1,9 +1,8 @@
-import { AlignRight, ChevronDown, Sun, Users } from 'lucide-react'
+import { AlignRight, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import SideBar from './SideBar'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useTheme } from "next-themes"
 import {ModeToggle} from '@/components/Theme/ModeToggle'
 
 const navs=[
@@ -28,8 +27,6 @@ const Header = () => {
         setShowMenu(!showMenu)
     }
 const pathname = usePathname();
-
-const {setTheme}=useTheme();
 
 
   return (

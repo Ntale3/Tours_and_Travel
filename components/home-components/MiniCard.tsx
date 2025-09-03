@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import Image from "next/image"
 
 interface MiniCardProps {
   destination: {
@@ -19,7 +20,7 @@ export default function MiniCard({ destination, onClick }: MiniCardProps) {
       className="bg-card backdrop-blur-md rounded-xl p-4 border border-border hover:bg-secondary transition-all duration-300 cursor-pointer transform hover:scale-105"
     >
       <div className="flex items-center space-x-4">
-        <img
+        <Image
           src={destination.cardImage}
           alt={`Card for ${destination.name}`}
           className="w-16 h-16 object-cover rounded-lg"

@@ -54,7 +54,7 @@ const DestinationPage = () => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,7 +102,7 @@ const DestinationPage = () => {
               Bali Paradise
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-emerald-50">
-              Discover the ultimate tropical escape in Indonesia's crown jewel
+              Discover the ultimate tropical escape in Indonesia&apos;s crown jewel
             </p>
             <div className="flex items-center justify-center gap-4 mb-8">
               <div className="flex items-center gap-1">
@@ -216,7 +216,7 @@ const DestinationPage = () => {
                       <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-card-foreground mb-4">"{review.comment}"</p>
+                  <p className="text-card-foreground mb-4">&ldquo;{review.comment}&ldquo;</p>
                   <p className="font-semibold text-card-foreground">- {review.name}</p>
                 </div>
               ))}
@@ -445,7 +445,7 @@ const DestinationPage = () => {
                         <span className="text-orange-500">${totalPrice}/night</span>
                       </div>
                       <p className="text-sm mt-2 text-accent-foreground">
-                        You'll be redirected to {bookingForm.paymentMethod.toUpperCase()} to complete payment
+                        You&apos;ll be redirected to {bookingForm.paymentMethod.toUpperCase()} to complete payment
                       </p>
                     </div>
                   </div>

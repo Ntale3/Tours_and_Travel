@@ -35,7 +35,7 @@ const Footer = () => {
                   <span className="font-bold text-xl">Foxico</span>
                 </div>
                 <p className="text-sidebar-foreground mb-4 max-w-md">
-                  Creating extraordinary travel experiences that connect you with the world's most beautiful destinations.
+                  Creating extraordinary travel experiences that connect you with the world&apos;s most beautiful destinations.
                 </p>
               </div>
 

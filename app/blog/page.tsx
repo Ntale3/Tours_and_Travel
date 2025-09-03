@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Image from "next/image"
 import {Calendar, User, ArrowRight, Heart, MessageCircle, Share2, BookOpen, Plus, X, Upload, Eye, Save, Send, Tag, MapPin } from 'lucide-react';
 import Header from '@/components/Header';
 
@@ -244,7 +245,7 @@ const BlogPage: React.FC = () => {
                     className="group bg-card backdrop-blur-md rounded-2xl overflow-hidden border border-border hover:border-secondary transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-secondary"
                   >
                     <div className="relative overflow-hidden">
-                      <img
+                      <Image
                         src={post.image}
                         alt={post.title}
                         className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
@@ -317,7 +318,7 @@ const BlogPage: React.FC = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative overflow-hidden">
-                  <img
+                  <Image
                     src={post.image}
                     alt={post.title}
                     className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
