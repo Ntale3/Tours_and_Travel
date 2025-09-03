@@ -146,6 +146,8 @@ const BlogDetailPage: React.FC = () => {
             {/* Hero Image */}
             <div className="relative h-96 overflow-hidden">
               <Image
+                width={200}
+                height={200}
                 src={blogPost.image}
                 alt={blogPost.title}
                 className="w-full h-full object-cover"
@@ -255,6 +257,8 @@ const BlogDetailPage: React.FC = () => {
               <div className="bg-card backdrop-blur-md rounded-2xl p-6 border border-border mb-8">
                 <div className="flex items-start gap-4">
                   <Image
+                    width={200}
+                    height={200}
                     src={blogPost.authorAvatar}
                     alt={blogPost.author}
                     className="w-16 h-16 rounded-full object-cover"
@@ -304,6 +308,8 @@ const BlogDetailPage: React.FC = () => {
                     <div key={comment.id} className="bg-card backdrop-blur-md rounded-2xl p-6 border border-border">
                       <div className="flex items-start gap-4">
                         <Image
+                          width={200}
+                          height={200}
                           src={comment.avatar}
                           alt={comment.author}
                           className="w-12 h-12 rounded-full object-cover"
@@ -335,6 +341,8 @@ const BlogDetailPage: React.FC = () => {
                                 <div key={reply.id} className="bg-secondary rounded-xl p-4">
                                   <div className="flex items-start gap-3">
                                     <Image
+                                      width={200}
+                                      height={200}
                                       src={reply.avatar}
                                       alt={reply.author}
                                       className="w-8 h-8 rounded-full object-cover"
@@ -378,6 +386,8 @@ const BlogDetailPage: React.FC = () => {
                 >
                   <div className="relative overflow-hidden">
                     <Image
+                      width={200}
+                      height={200}
                       src={post.image}
                       alt={post.title}
                       className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"

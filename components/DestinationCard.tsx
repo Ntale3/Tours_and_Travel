@@ -28,6 +28,8 @@ const DestinationCard = ({ destination, isFavorite, toggleFavorite }: Props) => 
       <div className="bg-card  rounded-3xl overflow-hidden border border-border hover:bg-secondary transition-all duration-500 transform hover:-translate-y-2">
         <div className="relative h-64 overflow-hidden">
           <Image
+            width={200}
+            height={200}
             src={destination.image}
             alt={destination.name}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

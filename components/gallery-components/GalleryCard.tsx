@@ -20,9 +20,10 @@ export default function GalleryCard({ image, index, onClick }: Props) {
       <div className="relative overflow-hidden rounded-2xl bg-card backdrop-blur-sm border border-border shadow-xl">
         <div className="aspect-w-4 aspect-h-3 relative h-64">
           <Image
+            width={400}
+            height={500}
             src={image.src}
             alt={`${image.alt} - ${image.destination}`}
-            //fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

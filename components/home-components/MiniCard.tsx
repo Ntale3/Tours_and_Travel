@@ -21,6 +21,8 @@ export default function MiniCard({ destination, onClick }: MiniCardProps) {
     >
       <div className="flex items-center space-x-4">
         <Image
+          width={200}
+          height={200}
           src={destination.cardImage}
           alt={`Card for ${destination.name}`}
           className="w-16 h-16 object-cover rounded-lg"

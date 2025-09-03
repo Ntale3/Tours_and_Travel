@@ -246,6 +246,8 @@ const BlogPage: React.FC = () => {
                   >
                     <div className="relative overflow-hidden">
                       <Image
+                        width={200}
+                        height={200}
                         src={post.image}
                         alt={post.title}
                         className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
@@ -319,6 +321,8 @@ const BlogPage: React.FC = () => {
               >
                 <div className="relative overflow-hidden">
                   <Image
+                    width={200}
+                    height={200}
                     src={post.image}
                     alt={post.title}
                     className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
