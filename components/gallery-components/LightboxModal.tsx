@@ -1,16 +1,26 @@
 'use client'
 import { ChevronLeft, ChevronRight, X, Star, Calendar, Users } from "lucide-react";
-import { GalleryImage } from "@/types";
+import { Destination, GalleryImage } from "@/types";
 import Image from "next/image"
+import { Button } from "../ui/button";
+import { redirect } from "next/navigation";
+
 
 interface Props {
   image: GalleryImage;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
+  destination?:Destination
 }
 
 export default function LightboxModal({ image, onClose, onPrev, onNext }: Props) {
+  const primaryImg = image.images?.[0]?.url
+
+  function handleNavigation(id:number): void {
+   redirect(`destinations/${id}`)
+  }
+
   return (
     <div
       role="dialog"
@@ -44,15 +54,15 @@ export default function LightboxModal({ image, onClose, onPrev, onNext }: Props)
 
         <div className="relative">
           <Image
-            src={image.src}
-            alt={image.alt}
+            src={primaryImg}
+            alt={image.name}
             width={1200}
             height={800}
             className="max-w-full max-h-[80vh] object-contain rounded-lg"
           />
 
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
-            <h3 className="text-2xl font-bold text-white mb-2">{image.destination}</h3>
+            <h3 className="text-2xl font-bold text-white mb-2">{image.name}</h3>
             <div className="flex items-center justify-between text-white">
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-1">
@@ -61,16 +71,17 @@ export default function LightboxModal({ image, onClose, onPrev, onNext }: Props)
                 </div>
                 <div className="flex items-center space-x-1">
                   <Calendar className="w-5 h-5" />
-                  <span>{image.duration}</span>
+                  <span>{image.duration_days}</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Users className="w-5 h-5" />
-                  <span>{image.groupSize} people</span>
+                  <span>{image.max_capacity} people</span>
                 </div>
               </div>
-              <button className="px-6 py-2 bg-orange-500 text-white rounded-full font-medium hover:bg-orange-600 transition-colors">
+
+              <Button onClick={()=>handleNavigation(image.id)}>
                 Book Now
-              </button>
+              </Button>
             </div>
           </div>
         </div>
