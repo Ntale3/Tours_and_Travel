@@ -2,7 +2,7 @@ import { Bookmark, Calendar, MapPin, Star } from "lucide-react";
 import Image from 'next/image'
 
 interface FeaturedCardProps {
-name: string;
+name?: string;
 country: string;
 cardImage: string;
 rating: number;

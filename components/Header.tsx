@@ -1,102 +1,117 @@
 import { AlignRight, Users } from 'lucide-react'
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import SideBar from './SideBar'
 import Link from 'next/link'
+import Image from 'next/image';
 import { usePathname } from 'next/navigation'
 import {ModeToggle} from '@/components/Theme/ModeToggle'
+import {auth$} from "@/store/auth.store";
 
-const navs=[
-    { link: '/', name: 'Home',hyperLinks:[] },
-    { link: '/destinations', name: 'Destinations' },
-    { link: '/blog', name: 'Blog', hyperLinks:[] },
-    { link: '/about', name: 'About' ,hyperLinks:[]},
-    { link: '/contact', name: 'Contact',hyperLinks:[]},
-    { link: '/gallery', name: 'Gallery',hyperLinks:[]}
-  ]
+// Add roles to your navigation items
+const navs = [
+    { link: '/', name: 'Home', roles: [] },
+    { link: '/destinations', name: 'Destinations', roles: [] },
+    { link: '/gallery', name: 'Gallery', roles: [] },
+    { link: '/blogs', name: 'Blog', roles: [] },
+    { link: '/about', name: 'About', roles: [] },
+    { link: '/contact', name: 'Contact', roles: [] },
+    { link: '/dashboard', name: 'Dashboard', roles: ['admin'] } 
+]
 
 const Header = () => {
-   const [showMenu, setShowMenu] = useState<boolean>(false)
-    const toggleMenu = ()=>{
+    const [showMenu, setShowMenu] = useState<boolean>(false)
+    const [mounted, setMounted] = useState<boolean>(false)
+    const toggleMenu = () => {
         setShowMenu(!showMenu)
     }
-const pathname = usePathname();
+    const pathname = usePathname();
 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-  return (
+    const { user, isAuthenticated } = mounted ? auth$.get() : { user: null, isAuthenticated: false };
 
-    <div>
-    <header className="fixed z-50 bg-sidebar backdrop-blur-md right-0 left-0 top-0 flex items-center justify-between p-4  lg:py-1">
-      <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">F</span>
-          </div>
-          <span className="text-sidebar-foreground text-xl font-bold">Foxico</span>
-      </div>
+    // Filter navigation items based on user role
+    const visibleNavs = navs.filter(nav => {
+        // If no roles specified, show to everyone
+        if (!nav.roles || nav.roles.length === 0) return true;
 
-    <div className="hidden md:block bg- p-4 rounded-3xl">
-        <nav className="hidden md:flex items-center space-x-8 text-sidebar-foreground">
-          <ul className='flex gap-4'>
-            {navs.map((nav,index)=>(
-              <li key={index} className={pathname===nav.link?'text-sidebar-accent-foreground font-semibold relative':''}>
-                { nav.name!=='Destinations'?
-                  <Link href={nav.link} className="hover:text-muted-foreground">
-                    {nav.name}
-                    {pathname===nav.link &&( <div className='absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-400 rounded-full'/> )}
-                  </Link>
-                    :
-                    <div className='relative group'>
-                      <div className='flex items-center '>
-                      <Link href={nav.link} className=' transition-colors flex items-center gap-1 hover:text-muted-foreground'>
-                      {nav.name}
-                      {pathname===nav.link &&( <div className='absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-400 rounded-full'/> )}
-                      </Link>
-                      {/* <ChevronDown className="w-4 h-4" /> */}
-                      </div>
+        // If roles specified, check if user has the required role
+        return user?.role && nav.roles.includes(user.role);
+    });
 
-                    {/* <div className="absolute top-full left-0 mt-2 w-48 bg-black/60 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="py-2">
-                      <ul>
-                        {
-                          nav.hyperLinks.map((hyperslink,index)=>(
-                            <li key={index}>
-                              <Link href={hyperslink.link}
-                              className='block px-4 py-2 text-white hover:bg-orange-100 hover:text-orange-600 transition-colors'
-                              >
-                                {hyperslink.name}
-
-                              </Link>
-                            </li>
-                          ))
-                        }
-                      </ul>
+    return (
+        <div>
+            <header className="fixed z-50 bg-sidebar backdrop-blur-md right-0 left-0 top-0 flex items-center justify-between p-4  lg:py-1">
+                <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-lg">F</span>
                     </div>
-                    </div> */}
-                  </div>
-                }
+                    <span className="text-sidebar-foreground text-xl font-bold">Foxico</span>
+                </div>
 
-              </li>
-            ))}
-          </ul>
-      </nav>
-    </div>
-    <div className="flex items-center space-x-4 justify-between">
-      <div className="bg-background w-8 h-8 rounded-full  items-center justify-center hidden md:flex">
-            <ModeToggle/>
-      </div>
+                <div className="hidden md:block bg- p-4 rounded-3xl">
+                    <nav className="hidden md:flex items-center space-x-8 text-sidebar-foreground">
+                        <ul className='flex gap-4'>
+                            {visibleNavs.map((nav, index) => (
+                                <li key={index} className={pathname === nav.link ? 'text-sidebar-accent-foreground font-semibold relative' : ''}>
+                                    {nav.name !== 'Destinations' ? (
+                                        <Link href={nav.link} className="hover:text-muted-foreground">
+                                            {nav.name}
+                                            {pathname === nav.link && (
+                                                <div className='absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-400 rounded-full'/>
+                                            )}
+                                        </Link>
+                                    ) : (
+                                        <div className='relative group'>
+                                            <div className='flex items-center'>
+                                                <Link href={nav.link} className='transition-colors flex items-center gap-1 hover:text-muted-foreground'>
+                                                    {nav.name}
+                                                    {pathname === nav.link && (
+                                                        <div className='absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-400 rounded-full'/>
+                                                    )}
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
 
-        <div className=" w-8 h-8 bg-background rounded-full flex items-center justify-center ">
-            <Users className="w-4 h-4 text-sidebar-foreground" />
+                <div className="flex items-center space-x-4 justify-between">
+                    <div className="bg-background w-8 h-8 rounded-full items-center justify-center hidden md:flex">
+                        <ModeToggle/>
+                    </div>
+
+                    <Link href={"/profile"}>
+                        <div className="w-8 h-8 bg-background rounded-full flex items-center justify-center">
+                            {user?.avatar ? (
+                                <Image
+                                    src={user.avatar}
+                                    alt={``}
+                                    width={32}
+                                    height={32}
+                                    className="rounded-full object-cover"
+                                />
+                            ) : (
+                                <Users className="w-4 h-4 text-sidebar-foreground" />
+                            )}
+                        </div>
+                    </Link>
+                    <span className="text-sidebar-foreground hidden lg:block">
+            {isAuthenticated ? `Hello, ${user?.first_name}!` : <Link href={'/sign-in'}>Login</Link>}
+        </span>
+                    <div className="lg:hidden md:hidden w-8 h-8 bg-background rounded-full flex items-center justify-center">
+                        <AlignRight className="w-4 h-4 text-sidebar-foreground" onClick={toggleMenu} />
+                    </div>
+                </div>
+            </header>
+            <SideBar setShowMenu={setShowMenu} showMenu={showMenu} visibleNavs={visibleNavs} />
         </div>
-        <span className="text-sidebar-foreground hidden lg:block">Hello, Anney !</span>
-        <div className=" lg:hidden md:hidden w-8 h-8 bg-background rounded-full flex items-center justify-center">
-            <AlignRight className="w-4 h-4 text-sidebar-foreground" onClick={toggleMenu} />
-        </div>
-
-         </div>
-        </header>
-        <SideBar setShowMenu={setShowMenu} showMenu={showMenu}/>
-  </div>
-  )
+    )
 }
 
 export default Header
