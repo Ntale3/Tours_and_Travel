@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react';
 import { BookOpen, Plus, X, Search, Loader2 } from 'lucide-react';
-import BlogSubmissionForm from '../createBlog/page';
 import Header from '@/components/Header';
 import { useHydration } from '@/hooks/useHydration';
 import { $blogStore, fetchBlogs } from '@/store/blog.store';
@@ -216,10 +215,6 @@ const BlogPage = () => {
               <p className="text-muted-foreground mb-8">
                 Your blog post will be reviewed by our team before being published. This helps maintain the quality of our community.
               </p>
-              {/* You would integrate your BlogSubmissionForm component here */}
-              <div className="text-center text-muted-foreground py-12 border-2 border-dashed border-border rounded-lg">
-                <BlogSubmissionForm/>
-              </div>
             </div>
           </div>
         </div>
